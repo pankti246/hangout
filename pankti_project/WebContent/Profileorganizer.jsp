@@ -217,23 +217,6 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                      </div>
                
             </div>
-			<div class="container">
-			<section class="section-editprofile">
-			
-			<div class="editprofile clearfix">
-			<a href="addcategories.jsp" style="color:black;">Add Interested Category</a><br><br>
-			
-			</div>
-			</section>
-			</div>		
-			
-			<div class="container">
-			<section class="section-editprofile">
-			<div class="editprofile clearfix">
-			<a href="removecategories.jsp" style="color:black;">Remove Interested Category</a>
-			</div>
-			</section>		
-			</div>
 			
         </div>
 

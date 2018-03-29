@@ -155,6 +155,8 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 							<h1 class="site-title"><a href="index.jsp" title="UAlbany-Hangouts" rel="home"><img src="images/loggg.png" alt="logo" width="400" height="60"></a></h1>
 						</div>
 
+						
+
 						<div class="col-md-9">
 							<nav id="site-navigation" class="navbar">
 								<div class="navbar-header">
@@ -172,13 +174,9 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									</button>
 									<ul class="nav navbar-nav navbar-right">
 										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
-										<li><a href="artist-page.html">Concerts</a></li>
-										<li><a href="upcoming-events.html">Sports</a></li>
-										<li><a href="order-ticket-without-seat.html">Parties</a></li>
-										<li><a href="event-by-category.html">Theater</a></li>
-										<li><a href="gallery.html">Gallery</a></li>
-										<li><a href="select-seat-2.html">Ticekts</a></li>
-									</ul>
+										<li><a href="categories.jsp">Categories</a></li>
+										<li><a href="Profile.jsp">Profile</a></li>
+										</ul>
 								</div>
 							</nav>
 						</div>
@@ -235,7 +233,9 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			</div>
 			
         </div>
-<div class="col-md-9">
+        
+        			
+        
 <section class="section-upcoming-events">
 			<div class="container">
 				<div class="row">

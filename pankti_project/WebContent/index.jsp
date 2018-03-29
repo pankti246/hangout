@@ -122,14 +122,9 @@
 									</button>
 									<ul class="nav navbar-nav navbar-right">
 										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
-										<li><a href="artist-page.html">Concerts</a></li>
-										<li><a href="upcoming-events.html">Sports</a></li>
-										<li><a href="order-ticket-without-seat.html">Parties</a></li>
-										<li><a href="event-by-category.html">Theater</a></li>
-										<li><a href="gallery.html">Gallery</a></li>
-										<li><a href="select-seat-2.html">Ticekts</a></li>
-										<li class="cart"><a href="#">0</a></li>
-									</ul>
+										<li><a href="categories.jsp">Categories</a></li>
+										<li><a href="Profile.jsp">Profile</a></li>
+										</ul>
 								</div>
 							</nav>
 						</div>
@@ -149,6 +144,45 @@
 				</div>
 			</div>
 		</section>
+		
+		<section class="section-event-category">
+			<div class="container">
+				<div class="row">
+					<div class="section-header">
+						<h2>Hangouts by Categories</h2>
+					</div>
+					<div class="section-content">
+						<ul class="row clearfix">
+							<li class="category-1 col-sm-4">
+								<img src="images/event-category-1.jpg" alt="image">
+								<a href="signin.jsp"><span>Music</span></a>
+							</li>
+							<li class="category-2 col-sm-4">
+								<img src="images/event-category-2.jpg" alt="image">
+								<a href="signin.jsp"><span>Sports</span></a>
+							</li>
+							<li class="category-3 col-sm-4">
+								<img src="images/event-category-3.jpg" alt="image">
+								<a href="signin.jsp"><span>Dance</span></a>
+							</li>
+							<li class="category-4 col-sm-4">
+								<img src="tech.png" alt="image">
+								<a href="signin.jsp"><span>Technology</span></a>
+							</li>
+							<li class="category-5 col-sm-4">
+								<img src="mang.png" alt="image">
+								<a href="signin.jsp"><span>Management & Leadership</span></a>
+							</li>
+							<li class="category-6 col-sm-4">
+								<img src="lang.png" alt="image">
+								<a href="signin.jsp"><span>Language & Culture</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 		
 		<section class="section-todays-schedule">
 			<div class="container">
@@ -248,43 +282,6 @@
 			</div>
 		</section>
 		
-		<section class="section-event-category">
-			<div class="container">
-				<div class="row">
-					<div class="section-header">
-						<h2>Hangouts by Categories</h2>
-					</div>
-					<div class="section-content">
-						<ul class="row clearfix">
-							<li class="category-1 col-sm-4">
-								<img src="images/event-category-1.jpg" alt="image">
-								<a href="signin.jsp"><span>Concerts</span></a>
-							</li>
-							<li class="category-2 col-sm-4">
-								<img src="images/event-category-2.jpg" alt="image">
-								<a href="signin.jsp"><span>Sports</span></a>
-							</li>
-							<li class="category-3 col-sm-4">
-								<img src="images/event-category-3.jpg" alt="image">
-								<a href="signin.jsp"><span>Threaters</span></a>
-							</li>
-							<li class="category-4 col-sm-4">
-								<img src="images/event-category-4.jpg" alt="image">
-								<a href="signin.jsp"><span>Parties</span></a>
-							</li>
-							<li class="category-5 col-sm-4">
-								<img src="images/event-category-5.jpg" alt="image">
-								<a href="signin.jsp"><span>Communities</span></a>
-							</li>
-							<li class="category-6 col-sm-4">
-								<img src="images/event-category-6.jpg" alt="image">
-								<a href="signin.jsp"><span>Classes</span></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
 		
 		<section class="section-stats">
 			<div class="container">
