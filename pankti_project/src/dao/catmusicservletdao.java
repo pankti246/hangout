@@ -20,25 +20,18 @@ public class catmusicservletdao {
 				
 				Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
-				statement = con.createStatement();
-				resultSet = statement.executeQuery("select category_id from categories where category_name="+category+"");
-				while(resultSet.next()){
-					categoryiddb = resultSet.getString("category_id");
 					
-				
 				
 				String sql = "insert into interested_category(email,category_id) values (?,?)";
 				ps = con.prepareStatement(sql);
 				
 				
 				ps.setString(1,	email);
-				ps.setString(2, categoryiddb);
+				ps.setString(2, category);
 				
 				int i = ps.executeUpdate();
 				if(i!=0) 
 					return "SUCCESS";
-				
-				}		
 }
 			catch(Exception e) {
 				e.printStackTrace();

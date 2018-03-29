@@ -33,22 +33,18 @@ public class catmusicservlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("servlet0");
 
 		String category = request.getParameter("category");
 		HttpSession session = request.getSession();
 		String email = session.getAttribute("email").toString();
-		
+		System.out.println("servlet10");
+
 		catmusicservletbean l = new catmusicservletbean();
 		l.setmusic(category);
 		l.setemail(email);
+		 
+		System.out.println(category);
 		
 		catmusicservletdao d = new catmusicservletdao();
 		String uservalidate = d.authenticateUser(l);
@@ -56,15 +52,27 @@ public class catmusicservlet extends HttpServlet {
 		if(uservalidate.equals("SUCCESS"))
 		{
 		
-			
+			System.out.println("servlet12");
+
 			response.sendRedirect("addcategories.jsp?msg=category added sucessfully");
 		}
 		else {
+			System.out.println("servlet13");
+
 			response.sendRedirect("addcategories.jsp?msg=category not  added sucessfully");
 
 		}
 
-		}
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+				}
 }
 		
 		

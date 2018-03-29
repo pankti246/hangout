@@ -173,15 +173,19 @@
 					
 						<ul class="row clearfix">
 							<c:forEach var="categories" items="${addcategories.rows}">
-						
+							
 							<li class="category-<c:out value="${categories.category_id}"></c:out> col-sm-4">
-							<img src="<c:out value="${categories.category_pic}"></c:out>" alt="image" name="category" value="<c:out value="${categories.category_name}"></c:out>">
-								<a href="catmusicservlet"><span><c:out value="${categories.category_name}"></c:out></span></a>
 							
+							<img src="<c:out value="${categories.category_pic}"></c:out>" alt="image" name="category1" >
+								<a href="catmusicservlet?category=${categories.category_id}"><span><c:out value="${categories.category_name}"></c:out></span></a>
 							
+
 							</li>
+							
 							</c:forEach>
+							
 						</ul>
+						
 					</div>
 				</div>
 			</div>
