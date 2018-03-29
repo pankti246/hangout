@@ -214,7 +214,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                     </div>
                     <div class="desc"><%=email %></div>
                      </div>
-               
+         <%} %>      
             </div>
 			<div class="container">
 			<section class="section-editprofile">
@@ -235,10 +235,56 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			</div>
 			
         </div>
+<div class="col-md-9">
+<section class="section-upcoming-events">
+			<div class="container">
+				<div class="row">
+					<div class="section-header">
+						<h2>Recommended Hangouts</h2>
+						</div>
+					<div class="section-content">
+					<% ResultSet rs1=st.executeQuery("select * from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"')");
+							                           while(rs1.next())
+							                           {
+							                        	  String day = rs1.getString(6);
+							                        	  String month = rs1.getString(7);
+							                        	  String year = rs1.getString(8);
+							                        	  String img = rs1.getString(5);
+							                        	  String name = rs1.getString(2);
+							                        	  %>
+						<ul class="clearfix">
+							
+							
+							<li> 
+								<div class="date">
+									
+										
+										
+										<span class="day"><%=day %></span>
+										<span class="month"><%=month %></span>
+										<span class="year"><%=year %></span>
+								
+								</div>
+									<img src="<%=img %>" alt="image">
+								<div class="info">
+									<p><%=name %> </p>
+									<a href="#" class="get-ticket">RSVP</a>
+								</div>
+							</li>
+							
+							
+						</ul>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 
+</div>
 	</div>
 </div>
-<%} %>
+
 <footer id="colophon" class="site-footer">
 			<div class="top-footer">
 				<div class="container">

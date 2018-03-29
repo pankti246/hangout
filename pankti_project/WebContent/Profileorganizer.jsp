@@ -103,7 +103,6 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-
 <%
 String sid=(String)session.getAttribute("email");
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
@@ -172,8 +171,9 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
+										<li><a href="create.jsp">Create new Hangout</a></li>
+									
 										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
-										<li><a href="artist-page.html">Concerts</a></li>
 										<li><a href="upcoming-events.html">Sports</a></li>
 										<li><a href="order-ticket-without-seat.html">Parties</a></li>
 										<li><a href="event-by-category.html">Theater</a></li>
@@ -257,46 +257,6 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 					
 				</div>
 			</div>
-			<div class="main-footer">
-				<div class="container">
-					<div class="row">
-						<div class="footer-1">
-							<div class="social clearfix">
-								<h3>Stay Connected</h3>
-								<ul>
-									<li class="facebook">
-										<a href="#">
-											<i class="fa fa-facebook" aria-hidden="true"></i>
-											Facebook
-										</a>
-									</li>
-									<li class="twitter">
-										<a href="#">
-											<i class="fa fa-twitter" aria-hidden="true"></i>
-											Twitter
-										</a>
-									</li>
-									<li class="linkedin">
-										<a href="#">
-											<i class="fa fa-linkedin-square" aria-hidden="true"></i>
-											LinkedIn
-										</a>
-									</li>
-									<li class="google">
-										<a href="#">
-											<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-											Google+
-										</a>
-									</li>
-									
-								</ul>
-							</di>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</footer>
 		
 
 </body>
