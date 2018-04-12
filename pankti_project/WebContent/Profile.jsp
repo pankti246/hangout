@@ -4,6 +4,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
    
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -103,9 +105,11 @@
 </head>
 
 <body>
+<%String sid=(String)session.getAttribute("email");
+ %>
+
 
 <%
-String sid=(String)session.getAttribute("email");
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
 
 							          Statement st=con.createStatement();
@@ -244,7 +248,56 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			
         </div>
         
-        			
+        <div class="col-md-9">
+<section class="section-upcoming-events">
+			<div class="container">
+				<div class="row">
+					<div class="section-header">
+						<h2>Hangouts you are going to!</h2>
+						</div>
+					<div class="section-content">
+					<% ResultSet rs2=st.executeQuery("select * from event_details where hangout_id in(Select hangout_id from rsvp_event where user_email='"+sid+"')");
+
+							                           while(rs2.next())
+							                           {
+							                        	  String hangout_id = rs2.getString(1);
+							                        	  String day = rs2.getString(6);
+							                        	  String month = rs2.getString(7);
+							                        	  String year = rs2.getString(8);
+							                        	  String img = rs2.getString(5);
+							                        	  String name = rs2.getString(2);
+							                        	  %>
+						<ul class="clearfix">
+							
+							
+							<li> 
+								<div class="date">
+									
+										
+										
+										<span class="day"><%=day %></span>
+										<span class="month"><%=month %></span>
+										<span class="year"><%=year %></span>
+								
+								</div>
+									<img src="<%=img %>" alt="image">
+								<div class="info">
+									<p><%=name %> </p>
+							<a href="delRSVPServlet?id=<%=hangout_id %>" class="get-ticket">Cancel RSVP</a>
+									
+								</div>
+							</li>
+							
+							
+						</ul>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+</div>
+        			<div class="col-md-3"></div>
         <div class="col-md-9">
 <section class="section-upcoming-events">
 			<div class="container">
@@ -253,9 +306,10 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 						<h2>Recommended Hangouts</h2>
 						</div>
 					<div class="section-content">
-					<% ResultSet rs1=st.executeQuery("select * from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"')");
-							                           while(rs1.next())
+					<% ResultSet rs1=st.executeQuery("select * from event_details where hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
+					while(rs1.next())
 							                           {
+							                        	  String hangout_id = rs1.getString(1);
 							                        	  String day = rs1.getString(6);
 							                        	  String month = rs1.getString(7);
 							                        	  String year = rs1.getString(8);
@@ -278,7 +332,8 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									<img src="<%=img %>" alt="image">
 								<div class="info">
 									<p><%=name %> </p>
-									<a href="#" class="get-ticket">RSVP</a>
+									
+									<a href="RSVPServlet?id=<%=hangout_id %>" class="get-ticket">RSVP</a>
 								</div>
 							</li>
 							
