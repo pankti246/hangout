@@ -5,6 +5,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
    
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,44 +58,193 @@
 	font-weight:500;
 }
 
-.section-editprofile{
-	background:#ff6600;
-	color:black;
-	font-weight:600;
-	font-size:14px;
-	line-height:18px;
-	font-family: 'Open Sans', sans-serif;
-	border:none;
-	padding:12px 25px;
-	border-radius:50px;
-	text-align:center;
-	display:inline-block;
-	text-transform:uppercase;
-	height:53px;
-	width:250px;
-	margin:0 0 5px 0;
+
+.section-event-category .section-content ul li.category-1:hover a{
+	background: rgb(46,204,113,.5); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.5) 0%, rgba(27,188,155,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.5 );
 }
 
-.section-editprofile:hover{
-	background:#ff6600;
-	color:#fff;
-}
-.card.hovercard .cardheader {
-    background: url("dp.jpg");
-    background-size: cover;
-    height: 135px;
-}
-.card.hovercard .info .title {
-    margin-bottom: 4px;
-    font-size: 24px;
-    line-height: 1;
-    color: black;
-    vertical-align: middle;
+.section-event-category .section-content ul li.category-2 a{
+	background: rgb(192,57,43,.9); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.9) 0%, rgba(210,77,87,.9) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.9 );
 }
 
+.section-event-category .section-content ul li.category-2:hover a{
+	background: rgb(192,57,43,.5); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.5) 0%, rgba(210,77,87,.5) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.5);
+}
 
+.section-event-category .section-content ul li.category-3 a{
+	background: rgb(102,51,153,.9); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.9) 0%, rgba(155,89,182,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-3:hover a{
+	background: rgb(102,51,153,.5); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.5) 0%, rgba(155,89,182,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-4 a{
+	background: rgb(211,84,0,.9); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.9) 0%, rgba(248,148,6,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-4:hover a{
+	background: rgb(211,84,0,.5); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.5) 0%, rgba(248,148,6,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-5 a{
+	background: rgb(68,108,179,.9);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.9) 0%, rgba(89,171,227,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-5:hover a{
+	background: rgb(68,108,179,.5);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.5) 0%, rgba(89,171,227,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-6 a{
+	background: rgb(219,10,91,.9); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.9) 0%, rgba(210,82,127,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-6:hover a{
+	background: rgb(219,10,91,.5); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.5) 0%, rgba(210,82,127,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.5 ); 
+}
+.section-event-category .section-content ul li.category-7 a{
+	background: rgb(46,204,113,.9); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.9) 0%, rgba(27,188,155,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.9) 0%,rgba(27,188,155,.9) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.9) 0%,rgba(27,188,155,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-7:hover a{
+	background: rgb(46,204,113,.5); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.5) 0%, rgba(27,188,155,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-8 a{
+	background: rgb(192,57,43,.9); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.9) 0%, rgba(210,77,87,.9) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-8:hover a{
+	background: rgb(192,57,43,.5); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.5) 0%, rgba(210,77,87,.5) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.5);
+}
+
+.section-event-category .section-content ul li.category-9 a{
+	background: rgb(102,51,153,.9); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.9) 0%, rgba(155,89,182,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-9:hover a{
+	background: rgb(102,51,153,.5); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.5) 0%, rgba(155,89,182,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-10 a{
+	background: rgb(211,84,0,.9); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.9) 0%, rgba(248,148,6,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-10:hover a{
+	background: rgb(211,84,0,.5); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.5) 0%, rgba(248,148,6,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-11 a{
+	background: rgb(68,108,179,.9);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.9) 0%, rgba(89,171,227,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-11:hover a{
+	background: rgb(68,108,179,.5);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.5) 0%, rgba(89,171,227,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-12 a{
+	background: rgb(219,10,91,.9); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.9) 0%, rgba(210,82,127,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-12:hover a{
+	background: rgb(219,10,91,.5); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.5) 0%, rgba(210,82,127,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.5 ); 
+}
 
 </style>
+
+
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -103,7 +254,6 @@
 </head>
 
 <body>
-<% String sid=(String)session.getAttribute("email"); %>
 
 <sql:setDataSource
 	var="ds"
@@ -112,11 +262,14 @@
 	user= "icsi518"
 	password= "secretICSI518"
 	/>
-	<sql:query var="addcategories" dataSource="${ds}">
-	SELECT * FROM `categories` WHERE category_id in (SELECT category_id from interested_category);
+	<sql:query var="showcategories" dataSource="${ds}">
+	SELECT * FROM `categories`;
 
 	
 	</sql:query>
+
+
+
 
 
 							          
@@ -197,46 +350,41 @@
 		
 
 
-<div class="col-md-9">
-<section class="section-upcoming-events">
+
+<section class="section-event-category">
 			<div class="container">
 				<div class="row">
 					<div class="section-header">
-						<h2>Hangouts according to the categories</h2>
-						</div>
-					<div class="section-content">
+						<h2>Hangouts by Categories</h2>
+					</div>
 					
+					<div class="section-content">
 						<ul class="row clearfix">
-							<c:forEach var="categories" items="${addcategories.rows}">
+						
+						<c:forEach var="categories" items="${showcategories.rows}">
 							
 							<li class="category-<c:out value="${categories.category_id}"></c:out> col-sm-4">
 							
 							<img src="<c:out value="${categories.category_pic}"></c:out>" alt="image" name="category1" >
-								<a href="catmusicservlet1?category=${categories.category_id}"><span><c:out value="${categories.category_name}"></c:out></span></a>
+								<a href="cat.jsp?id=${categories.category_id}"><span><c:out value="${categories.category_name}"></c:out></span></a>
+							<c:set var="id1" value="${categories.category_id}" />
+							<%
+							 String id1 = (String) session.getAttribute("id1");
+							session.setAttribute("id2",id1);
+							%>	
 							
 
 							</li>
 							
 							</c:forEach>
-							
-						</ul>
-						
+							</ul>
+										</div>
+					
 					</div>
-
-							
-							
-							
-							
-						
 					</div>
-				</div>
-			</div>
-		</section>
-		
+					</section>
 
-</div>
-	</div>
-</div>
+
 
 <footer id="colophon" class="site-footer">
 			<div class="top-footer">
@@ -257,7 +405,7 @@
 			<div class="main-footer">
 				<div class="container">
 					<div class="row">
-						<div class="footer-1">
+						<div class="footer-1 col-md-9">
 							<div class="social clearfix">
 								<h3>Stay Connected</h3>
 								<ul>
@@ -294,7 +442,6 @@
 				</div>
 			</div>
 		</footer>
-		
-		</body>
-		</html>
-		
+
+</body>
+</html>

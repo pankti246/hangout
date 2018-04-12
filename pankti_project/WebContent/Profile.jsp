@@ -227,6 +227,16 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			</div>
 			</section>
 			</div>		
+			  
+            <div class="container">
+			<section class="section-editprofile">
+			
+			<div class="editprofile clearfix">
+			<a href=updatepassword.jsp style="color:black;">Update Password</a><br><br>
+			
+			</div>
+			</section>
+			</div>		
 			
 			<div class="container">
 			<section class="section-editprofile">

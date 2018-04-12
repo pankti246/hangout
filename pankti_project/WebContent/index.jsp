@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+    <%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%> 
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -62,9 +69,209 @@
 	color:#b3b3b3;
 	font-weight:500;
 }
+.section-event-category .section-content ul li.category-1:hover a{
+	background: rgb(46,204,113,.5); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.5) 0%, rgba(27,188,155,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-2 a{
+	background: rgb(192,57,43,.9); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.9) 0%, rgba(210,77,87,.9) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-2:hover a{
+	background: rgb(192,57,43,.5); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.5) 0%, rgba(210,77,87,.5) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.5);
+}
+
+.section-event-category .section-content ul li.category-3 a{
+	background: rgb(102,51,153,.9); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.9) 0%, rgba(155,89,182,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-3:hover a{
+	background: rgb(102,51,153,.5); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.5) 0%, rgba(155,89,182,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-4 a{
+	background: rgb(211,84,0,.9); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.9) 0%, rgba(248,148,6,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-4:hover a{
+	background: rgb(211,84,0,.5); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.5) 0%, rgba(248,148,6,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-5 a{
+	background: rgb(68,108,179,.9);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.9) 0%, rgba(89,171,227,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-5:hover a{
+	background: rgb(68,108,179,.5);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.5) 0%, rgba(89,171,227,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-6 a{
+	background: rgb(219,10,91,.9); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.9) 0%, rgba(210,82,127,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-6:hover a{
+	background: rgb(219,10,91,.5); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.5) 0%, rgba(210,82,127,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.5 ); 
+}
+.section-event-category .section-content ul li.category-7 a{
+	background: rgb(46,204,113,.9); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.9) 0%, rgba(27,188,155,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.9) 0%,rgba(27,188,155,.9) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.9) 0%,rgba(27,188,155,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-7:hover a{
+	background: rgb(46,204,113,.5); 
+	background: -moz-linear-gradient(left,  rgba(46,204,113,.5) 0%, rgba(27,188,155,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	background: linear-gradient(to right,  rgba(46,204,113,.5) 0%,rgba(27,188,155,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#1bbc9b',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-8 a{
+	background: rgb(192,57,43,.9); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.9) 0%, rgba(210,77,87,.9) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.9) 0%,rgba(210,77,87,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-8:hover a{
+	background: rgb(192,57,43,.5); 
+	background: -moz-linear-gradient(left, rgba(192,57,43,.5) 0%, rgba(210,77,87,.5) 100%); 
+	background: -webkit-linear-gradient(left, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	background: linear-gradient(to right, rgba(192,57,43,.5) 0%,rgba(210,77,87,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0392b', endColorstr='#d24d57',GradientType=.5);
+}
+
+.section-event-category .section-content ul li.category-9 a{
+	background: rgb(102,51,153,.9); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.9) 0%, rgba(155,89,182,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.9) 0%,rgba(155,89,182,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.9 );
+}
+
+.section-event-category .section-content ul li.category-9:hover a{
+	background: rgb(102,51,153,.5); 
+	background: -moz-linear-gradient(left,  rgba(102,51,153,.5) 0%, rgba(155,89,182,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	background: linear-gradient(to right,  rgba(102,51,153,.5) 0%,rgba(155,89,182,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#9b59b6',GradientType=.5 );
+}
+
+.section-event-category .section-content ul li.category-10 a{
+	background: rgb(211,84,0,.9); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.9) 0%, rgba(248,148,6,.9) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.9) 0%,rgba(248,148,6,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-10:hover a{
+	background: rgb(211,84,0,.5); 
+	background: -moz-linear-gradient(left,  rgba(211,84,0,.5) 0%, rgba(248,148,6,.5) 100%);
+	background: -webkit-linear-gradient(left,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	background: linear-gradient(to right,  rgba(211,84,0,.5) 0%,rgba(248,148,6,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35400', endColorstr='#f89406',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-11 a{
+	background: rgb(68,108,179,.9);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.9) 0%, rgba(89,171,227,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.9) 0%,rgba(89,171,227,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-11:hover a{
+	background: rgb(68,108,179,.5);
+	background: -moz-linear-gradient(left,  rgba(68,108,179,.5) 0%, rgba(89,171,227,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	background: linear-gradient(to right,  rgba(68,108,179,.5) 0%,rgba(89,171,227,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446cb3', endColorstr='#59abe3',GradientType=.5 ); 
+}
+
+.section-event-category .section-content ul li.category-12 a{
+	background: rgb(219,10,91,.9); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.9) 0%, rgba(210,82,127,.9) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.9) 0%,rgba(210,82,127,.9) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.9 ); 
+}
+
+.section-event-category .section-content ul li.category-12:hover a{
+	background: rgb(219,10,91,.5); 
+	background: -moz-linear-gradient(left,  rgba(219,10,91,.5) 0%, rgba(210,82,127,.5) 100%); 
+	background: -webkit-linear-gradient(left,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	background: linear-gradient(to right,  rgba(219,10,91,.5) 0%,rgba(210,82,127,.5) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0a5b', endColorstr='#d2527f',GradientType=.5 ); 
+}
+
 </style>
 </head>
 <body>
+
+<sql:setDataSource
+	var="ds"
+	driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/ualbanyhangouts"
+	user= "icsi518"
+	password= "secretICSI518"
+	/>
+	<sql:query var="showcategories" dataSource="${ds}">
+	SELECT * FROM `categories`;
+
+	
+	</sql:query>
+
+
+
+
 <header id="masthead" class="site-header fix-header header-1">
 			<div class="top-header top-header-bg">
 				<div class="container">
@@ -153,134 +360,24 @@
 					</div>
 					<div class="section-content">
 						<ul class="row clearfix">
-							<li class="category-1 col-sm-4">
-								<img src="images/event-category-1.jpg" alt="image">
-								<a href="signin.jsp"><span>Music</span></a>
+						
+						<c:forEach var="categories" items="${showcategories.rows}">
+							
+							<li class="category-<c:out value="${categories.category_id}"></c:out> col-sm-4">
+							
+							<img src="<c:out value="${categories.category_pic}"></c:out>" alt="image" name="category1" >
+								<a href="signin.jsp"><span><c:out value="${categories.category_name}"></c:out></span></a>
+							
+
 							</li>
-							<li class="category-2 col-sm-4">
-								<img src="images/event-category-2.jpg" alt="image">
-								<a href="signin.jsp"><span>Sports</span></a>
-							</li>
-							<li class="category-3 col-sm-4">
-								<img src="images/event-category-3.jpg" alt="image">
-								<a href="signin.jsp"><span>Dance</span></a>
-							</li>
-							<li class="category-4 col-sm-4">
-								<img src="tech.png" alt="image">
-								<a href="signin.jsp"><span>Technology</span></a>
-							</li>
-							<li class="category-5 col-sm-4">
-								<img src="mang.png" alt="image">
-								<a href="signin.jsp"><span>Management & Leadership</span></a>
-							</li>
-							<li class="category-6 col-sm-4">
-								<img src="lang.png" alt="image">
-								<a href="signin.jsp"><span>Language & Culture</span></a>
-							</li>
-						</ul>
-					</div>
+							
+							</c:forEach>
+										</div>
 				</div>
 			</div>
 		</section>
 		
 		
-		<section class="section-todays-schedule">
-			<div class="container">
-				<div class="row">
-					<div class="section-header">
-						<h2>Today's Schedule</h2>
-						<span class="todays-date"><i class="fa fa-calendar" aria-hidden="true"></i> <%= (new java.util.Date()).toString()%> </span>
-					</div>
-					<div class="section-content">
-						<ul class="clearfix">
-							<li class="event-1">
-								<span class="event-time">08:00 <strong>AM</strong></span>
-								<strong class="event-name">Kiai Kanjeng Orchestra</strong>
-								<a href="signin.jsp" class="get-ticket">RSVP</a>
-							</li>
-							<li class="event-2">
-								<span class="event-time">08:00 <strong>AM</strong></span>
-								<strong class="event-name">Envato Author Meetup</strong>
-								<a href="signin.jsp" class="get-ticket">RSVP</a>
-							</li>
-							<li class="event-3">
-								<span class="event-time">10:00 <strong>AM</strong></span>
-								<strong class="event-name">BMW Open Championship</strong>
-								<a href="signin.jsp" class="get-ticket">RSVP</a>
-							</li>
-							<li class="event-4">
-								<span class="event-time">09:00 <strong>PM</strong></span>
-								<strong class="event-name">UEFA Champions League: Barca v Arsenal</strong>
-								<a href="signin.jsp" class="get-ticket">RSVP</a>
-							</li>	
-						</ul>
-						<strong class="event-list-label">Full Hangouts Schedules</strong>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section class="section-upcoming-events">
-			<div class="container">
-				<div class="row">
-					<div class="section-header">
-						<h2>Upcoming Hangouts</h2>
-						<p>Hangouts going to occur shortly in UAlbany </p>
-						<a href="signin.jsp">See all upcoming events</a>
-					</div>
-					<div class="section-content">
-						<ul class="clearfix">
-							<li>
-								<div class="date">
-									<a href="#">
-										<span class="day">25</span>
-										<span class="month">August</span>
-										<span class="year">2016</span>
-									</a>
-								</div>
-								
-									<img src="images/upcoming-event-1.jpg" alt="image">
-								
-								<div class="info">
-									<p>BMW Open Championship </p>
-									<a href="signin.jsp" class="get-ticket">RSVP</a>
-								</div>
-							</li>
-							<li>
-								<div class="date">
-									
-										<span class="day">26</span>
-										<span class="month">August</span>
-										<span class="year">2016</span>
-								
-								</div>
-									<img src="images/upcoming-event-2.jpg" alt="image">
-								<div class="info">
-									<p>Kiai Kanjeng Orchestra </p>
-									<a href="signin.jsp" class="get-ticket">RSVP</a>
-								</div>
-							</li>
-							<li>
-								<div class="date">
-									
-										<span class="day">27</span>
-										<span class="month">August</span>
-										<span class="year">2016</span>
-									
-								</div>
-								
-									<img src="images/upcoming-event-3.jpg" alt="image">
-								
-								<div class="info">
-									<p>Envato Author SF Meetup </p>
-									<a href="signin.jsp" class="get-ticket">RSVP</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
 		
 		
 		<section class="section-stats">
@@ -289,18 +386,40 @@
 					<div class="section-content">
 						<ul class="row clearfix">
 							<li class="col-sm-4">
-								<span class="count">598</span>
+							<%
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
+
+							          Statement st=con.createStatement();
+							          ResultSet rs=st.executeQuery("select COUNT(hangout_id) from event_details");
+							                           while(rs.next())
+							                           {
+							                        	  String events = rs.getString(1);
+							                        	  %>
+								<span class="count"><%=events%></span>
+								<%} %>
 								<hr>
 								<p>Events Active</p>
 							</li>
 							<li class="col-sm-4">
-								<span class="count">16,173</span>
+							<% ResultSet rs1=st.executeQuery("select COUNT(email) from user_details");
+	                           while(rs1.next())
+	                           {
+	                        	  String events = rs1.getString(1);
+	                        	  %>
+								<span class="count"><%=events %></span>
+								<%} %>
 								<hr>
 								<p>Active User</p>
 							</li>
 							<li class="col-sm-4">
-								<span class="count">136,874</span>
-								<hr>
+							<% ResultSet rs2=st.executeQuery("select COUNT(user_email) from rsvp_event");
+	                           while(rs2.next())
+	                           {
+	                        	  String events = rs2.getString(1);
+	                        	  %>
+								<span class="count"><%=events %></span>
+								<%} %>
+															<hr>
 								<p>RSVP</p>
 							</li>
 						</ul>
