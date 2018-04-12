@@ -1,4 +1,4 @@
-////this file tells us that we select the category and it is redirected to the events by category page where we can select or upvote the events.
+<!-- displays category, select category and go to events list by category page -->
 
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
