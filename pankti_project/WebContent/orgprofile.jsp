@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+   
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,17 +43,6 @@
 			<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 <style>
-.section-newsletter{
-	padding:90px 0;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	position:relative;
-	height:100%;
-}
-
-
 .hero-1{
 	position:relative;
 	background:url(hero-1-img.jpg) no-repeat center center;
@@ -100,95 +92,6 @@
     color: black;
     vertical-align: middle;
 }
-.section-newsletter .section-content .newsletter-form input[type="password"]{
-	background:none;
-	color:#fff;
-	font-size:15px;
-	font-family: 'Open Sans', sans-serif;
-	border:2px solid #fff;
-	padding:12px 30px;
-	border-radius:50px;
-	margin:0 5px 0 0;
-	width:50%;
-	height:53px;
-}
-.section-newsletter .section-content .newsletter-form input[type="text"]{
-	background:none;
-	color:#fff;
-	font-size:15px;
-	font-family: 'Open Sans', sans-serif;
-	border:2px solid #fff;
-	padding:12px 30px;
-	border-radius:50px;
-	margin:0 5px 0 0;
-	width:50%;
-	height:53px;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="radio"]{
-	background:none;
-	color:#fff;
-	font-size:15px;
-	font-family: 'Open Sans', sans-serif;
-	border:2px solid #fff;
-	padding:12px 30px;
-	border-radius:50px;
-	margin:0 5px 0 0;
-	width:50%;
-	height:53px;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="password"]::-webkit-input-placeholder{
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="password"]::-moz-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="password"]:-ms-input-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="password"]:-moz-placeholder{ 
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="radio"]::-webkit-input-placeholder{
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="radio"]::-moz-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="radio"]:-ms-input-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="radio"]:-moz-placeholder{ 
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="text"]::-webkit-input-placeholder{
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="text"]::-moz-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="text"]:-ms-input-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="text"]:-moz-placeholder{ 
-	color: #fff;
-}
-
-.section-newsletter .section-content h5{
-	font-size:15px;
-	font-weight:700;
-	color:#fff;
-	margin:0 0 20px;
-	font-family: 'Open Sans', sans-serif;
-	
-}
 
 
 
@@ -200,9 +103,13 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+
 <body>
+<%String sid=(String)session.getAttribute("email");
+ %>
+
+
 <%
-String sid=(String)session.getAttribute("email");
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
 
 							          Statement st=con.createStatement();
@@ -213,8 +120,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 							                        	  String firstname = rs.getString(3);
 							                        	  String lastname = rs.getString(4);
 							                        	  String profile_pic = rs.getString(5);
-							                        	  %>
-
+							                            %>
 <header id="masthead" class="site-header fix-header header-1">
 			<div class="top-header top-header-bg">
 				<div class="container">
@@ -271,9 +177,8 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-									<li><a href="try.jsp">Create new hangout</a></li>
-									
-										<li><a href="Profileorganizer.jsp">Profile</a></li>
+										<li><a href="categories.jsp">Categories</a></li>
+										<li><a href="Profile.jsp">Profile</a></li>
 										</ul>
 								</div>
 							</nav>
@@ -291,9 +196,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 				</div>
 			</div>
 		</section>
-		
-
-<div class="container">
+		<div class="container">
 	<div class="row">
 		<div class="col-md-3">
 
@@ -308,24 +211,15 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                     <div class="title">
                         <a><%=firstname %> <%=lastname %></a>
                     </div>
-                    <div class="desc"><%=email %>
-                    </div>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
+                    <div class="desc"><%=email %></div>
                      </div>
          <%} %>      
-                 <div class="col-md-9">
-         
-         </div>
-         
-         
-         <div class="container">
+            </div>
+		<div class="container">
 			<section class="section-editprofile">
 			
 			<div class="editprofile clearfix">
-			<a href=editprofile.jsp style="color:black;">Edit Profile</a><br><br>
+			<a href=editorgprofile.jsp style="color:black;">Edit Profile</a><br><br>
 			
 			</div>
 			</section>
@@ -335,70 +229,11 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			<section class="section-editprofile">
 			
 			<div class="editprofile clearfix">
-			<a href=updatepassword.jsp style="color:black;">Update Password</a><br><br>
+			<a href=updateorgpassword.jsp style="color:black;">Update Password</a><br><br>
 			
 			</div>
 			</section>
 			</div>		
 			
-		<footer id="colophon" class="site-footer">
-			<div class="top-footer">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-8">
-							<a href="#"><img src="images/footerlogo.png" alt="logo"></a>
-						</div>
-						<div class="col-md-4">
-						
-						<p>&copy; UAlbany Hangouts. ALL RIGHTS RESEVED</p>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			<div class="main-footer">
-				<div class="container">
-					<div class="row">
-						<div class="footer-1">
-							<div class="social clearfix">
-								<h3>Stay Connected</h3>
-								<ul>
-									<li class="facebook">
-										<a href="#">
-											<i class="fa fa-facebook" aria-hidden="true"></i>
-											Facebook
-										</a>
-									</li>
-									<li class="twitter">
-										<a href="#">
-											<i class="fa fa-twitter" aria-hidden="true"></i>
-											Twitter
-										</a>
-									</li>
-									<li class="linkedin">
-										<a href="#">
-											<i class="fa fa-linkedin-square" aria-hidden="true"></i>
-											LinkedIn
-										</a>
-									</li>
-									<li class="google">
-										<a href="#">
-											<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-											Google+
-										</a>
-									</li>
-									
-								</ul>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			
-			</div>
-		</footer>
-		
-
 </body>
 </html>

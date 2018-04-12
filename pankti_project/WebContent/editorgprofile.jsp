@@ -94,6 +94,7 @@
 
 .section-newsletter{
 	padding:90px 0;
+	background:url(hero-1-img.jpg) no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -201,19 +202,6 @@
 	height:53px;
 }
 
-.section-newsletter .section-content .newsletter-form input[type="textbox"]{
-	background:none;
-	color:#fff;
-	font-size:15px;
-	font-family: 'Open Sans', sans-serif;
-	border:2px solid #fff;
-	padding:12px 30px;
-	border-radius:50px;
-	margin:0 5px 0 0;
-	width:50%;
-	height:53px;
-}
-
 
 .section-newsletter .section-content .newsletter-form input[type="submit"]{
 	background:#fff;
@@ -294,20 +282,6 @@
 .section-newsletter .section-content .newsletter-form input[type="file"]:-moz-placeholder{ 
 	color: #fff;
 }
-.section-newsletter .section-content .newsletter-form input[type="textbox"]::-webkit-input-placeholder{
-	color: #fff;
-}
-.section-newsletter .section-content .newsletter-form input[type="textbox"]::-moz-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="textbox"]:-ms-input-placeholder{
-	color: #fff;
-}
-
-.section-newsletter .section-content .newsletter-form input[type="textbox"]:-moz-placeholder{ 
-	color: #fff;
-}
 
 
 </style>
@@ -378,7 +352,9 @@
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-										<li><a href="Profileorganizer.jsp">Profile</a></li>
+										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
+										<li><a href="categories.jsp">Categories</a></li>
+										<li><a href="Profile.jsp">Profile</a></li>
 										</ul>
 								</div>
 							</nav>
@@ -399,43 +375,20 @@
 		<section class="section-newsletter">
 		<div class="container">
 				<div class="section-content">
-					<h2>Create Hangout!!!</h2>
+					<h2>Edit your profile!!!</h2>
 			
-		<form action="editprofileservlet" method="post">
+		<form action="editorgprofileservlet" method="post">
 					<div class="newsletter-form clearfix">
-						<input type="text" name="firstname" placeholder="Title of Hangout"> <br><br>
+						<input type="text" name="firstname" placeholder="Your First Name"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="textbox" name="lastname" placeholder="Description of Hangout"> <br><br>
+						<input type="text" name="lastname" placeholder="Your Last Name"> <br><br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="textbox" name="profilepic" placeholder="Speaker Info"> <br> <br>
+						<input type="file" name="profilepic" placeholder="Your Profile Picture"> <br> <br>
 					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Date"> <br> <br>
-					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Time"> <br> <br>
-					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Venue"> <br> <br>
-					</div>
-					
 					<div class="newsletter-form clearfix">
-					<div class="col-md-4"></div>
-					<div class="col-md-4">
-		            <h5><input type="radio" id="radio1" style="width:12px;" name="radio" value="user">Music &nbsp;&nbsp; 
-                       <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer"> Sports&nbsp;&nbsp; <br> <br></h5> 
-					                  <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Arts &nbsp;&nbsp; 
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Technology &nbsp;&nbsp; <br> <br>
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Management & Leadership&nbsp;&nbsp; <br> <br>  
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer"> Language & Culture&nbsp;&nbsp; <br> <br></h5> 
-					
-					</div>
-					</div>
-					
-					<div class="newsletter-form clearfix">
-						<input type="submit" value="Create"><br> <br>
+						<input type="submit" value="Edit Profile"><br> <br>
 					</div>
 					</form>
 					

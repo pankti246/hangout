@@ -53,10 +53,9 @@ public class AdminCategoryServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
-			String query = "insert into ualbanyhangouts.categories(category_name,category_pic) values (?,?)"; 
+			String query = "insert into categories(category_name,category_pic) values (?,?)"; 
 			
-			preparedStatement = (PreparedStatement) con.prepareStatement(query); 
-			
+			preparedStatement = con.prepareStatement(query); 
 			preparedStatement.setString(1, category_name);
 			preparedStatement.setString(2, category_pic);
 			

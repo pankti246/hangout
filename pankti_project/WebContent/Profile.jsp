@@ -177,7 +177,6 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-										<li class="active"><a href="full-event-schedule.jsp">Schedule</a></li>
 										<li><a href="categories.jsp">Categories</a></li>
 										<li><a href="Profile.jsp">Profile</a></li>
 										</ul>
@@ -316,7 +315,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 						<h2>Recommended Hangouts</h2>
 						</div>
 					<div class="section-content">
-					<% ResultSet rs1=st.executeQuery("select * from event_details where hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
+					<% ResultSet rs1=st.executeQuery("select * from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"') and hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
 					while(rs1.next())
 							                           {
 							                        	  String hangout_id = rs1.getString(1);

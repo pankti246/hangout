@@ -174,6 +174,7 @@
 					</div>
 					</form>
 					<div class="newsletter-form clearfix">
+						
 						<a href="login.jsp"><h5>Already a member? SignIn to continue exploring hangouts..</h5></a> 
 					</div>
 				</div>
