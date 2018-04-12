@@ -173,7 +173,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
+										<li class="active"><a href="full-event-schedule.jsp">Schedule</a></li>
 										<li><a href="categories.jsp">Categories</a></li>
 										<li><a href="Profile.jsp">Profile</a></li>
 										</ul>
@@ -214,6 +214,16 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                      </div>
          <%} %>      
             </div>
+            <div class="container">
+			<section class="section-editprofile">
+			
+			<div class="editprofile clearfix">
+			<a href=editprofile.jsp style="color:black;">Edit Profile</a><br><br>
+			
+			</div>
+			</section>
+			</div>		
+			
 			<div class="container">
 			<section class="section-editprofile">
 			
@@ -235,7 +245,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
         </div>
         
         			
-        
+        <div class="col-md-9">
 <section class="section-upcoming-events">
 			<div class="container">
 				<div class="row">
@@ -280,7 +290,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			</div>
 		</section>
 		
-
+</div>
 </div>
 	</div>
 </div>

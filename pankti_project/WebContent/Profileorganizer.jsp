@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%@page import="java.sql.Statement"%>
+    <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
-   
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
@@ -42,6 +40,17 @@
 			<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 <style>
+.section-newsletter{
+	padding:90px 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position:relative;
+	height:100%;
+}
+
+
 .hero-1{
 	position:relative;
 	background:url(hero-1-img.jpg) no-repeat center center;
@@ -90,6 +99,95 @@
     line-height: 1;
     color: black;
     vertical-align: middle;
+}
+.section-newsletter .section-content .newsletter-form input[type="password"]{
+	background:none;
+	color:#fff;
+	font-size:15px;
+	font-family: 'Open Sans', sans-serif;
+	border:2px solid #fff;
+	padding:12px 30px;
+	border-radius:50px;
+	margin:0 5px 0 0;
+	width:50%;
+	height:53px;
+}
+.section-newsletter .section-content .newsletter-form input[type="text"]{
+	background:none;
+	color:#fff;
+	font-size:15px;
+	font-family: 'Open Sans', sans-serif;
+	border:2px solid #fff;
+	padding:12px 30px;
+	border-radius:50px;
+	margin:0 5px 0 0;
+	width:50%;
+	height:53px;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="radio"]{
+	background:none;
+	color:#fff;
+	font-size:15px;
+	font-family: 'Open Sans', sans-serif;
+	border:2px solid #fff;
+	padding:12px 30px;
+	border-radius:50px;
+	margin:0 5px 0 0;
+	width:50%;
+	height:53px;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="password"]::-webkit-input-placeholder{
+	color: #fff;
+}
+.section-newsletter .section-content .newsletter-form input[type="password"]::-moz-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="password"]:-ms-input-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="password"]:-moz-placeholder{ 
+	color: #fff;
+}
+.section-newsletter .section-content .newsletter-form input[type="radio"]::-webkit-input-placeholder{
+	color: #fff;
+}
+.section-newsletter .section-content .newsletter-form input[type="radio"]::-moz-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="radio"]:-ms-input-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="radio"]:-moz-placeholder{ 
+	color: #fff;
+}
+.section-newsletter .section-content .newsletter-form input[type="text"]::-webkit-input-placeholder{
+	color: #fff;
+}
+.section-newsletter .section-content .newsletter-form input[type="text"]::-moz-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="text"]:-ms-input-placeholder{
+	color: #fff;
+}
+
+.section-newsletter .section-content .newsletter-form input[type="text"]:-moz-placeholder{ 
+	color: #fff;
+}
+
+.section-newsletter .section-content h5{
+	font-size:15px;
+	font-weight:700;
+	color:#fff;
+	margin:0 0 20px;
+	font-family: 'Open Sans', sans-serif;
+	
 }
 
 
@@ -155,6 +253,8 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 							<h1 class="site-title"><a href="index.jsp" title="UAlbany-Hangouts" rel="home"><img src="images/loggg.png" alt="logo" width="400" height="60"></a></h1>
 						</div>
 
+						
+
 						<div class="col-md-9">
 							<nav id="site-navigation" class="navbar">
 								<div class="navbar-header">
@@ -171,15 +271,12 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-										<li><a href="create.jsp">Create new Hangout</a></li>
+									<li><a href="create.jsp">Create new hangout</a></li>
 									
 										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
-										<li><a href="upcoming-events.html">Sports</a></li>
-										<li><a href="order-ticket-without-seat.html">Parties</a></li>
-										<li><a href="event-by-category.html">Theater</a></li>
-										<li><a href="gallery.html">Gallery</a></li>
-										<li><a href="select-seat-2.html">Ticekts</a></li>
-									</ul>
+										<li><a href="categories.jsp">Categories</a></li>
+										<li><a href="Profile.jsp">Profile</a></li>
+										</ul>
 								</div>
 							</nav>
 						</div>
@@ -213,18 +310,19 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                     <div class="title">
                         <a><%=firstname %> <%=lastname %></a>
                     </div>
-                    <div class="desc"><%=email %></div>
+                    <div class="desc"><%=email %>
+                    </div>
                      </div>
-               
-            </div>
-			
-        </div>
-
-	</div>
-</div>
-<%} %>
-
-<footer id="colophon" class="site-footer">
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+         <%} %>      
+                 <div class="col-md-9">
+         
+         </div>
+         
+		<footer id="colophon" class="site-footer">
 			<div class="top-footer">
 				<div class="container">
 					<div class="row">
@@ -240,6 +338,47 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 					
 				</div>
 			</div>
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+						<div class="footer-1">
+							<div class="social clearfix">
+								<h3>Stay Connected</h3>
+								<ul>
+									<li class="facebook">
+										<a href="#">
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+											Facebook
+										</a>
+									</li>
+									<li class="twitter">
+										<a href="#">
+											<i class="fa fa-twitter" aria-hidden="true"></i>
+											Twitter
+										</a>
+									</li>
+									<li class="linkedin">
+										<a href="#">
+											<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+											LinkedIn
+										</a>
+									</li>
+									<li class="google">
+										<a href="#">
+											<i class="fa fa-google-plus-square" aria-hidden="true"></i>
+											Google+
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			
+			</div>
+		</footer>
 		
 
 </body>
