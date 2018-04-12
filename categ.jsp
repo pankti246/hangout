@@ -1,3 +1,5 @@
+////this file tells us that we select the category and it is redirected to the events by category page where we can select or upvote the events.
+
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
