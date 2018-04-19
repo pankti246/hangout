@@ -292,36 +292,32 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <script> 
+
 function validation()
 {
 	var oldpassword = document.update.oldpassword.value;
 	var newpassword = document.update.newpassword.value;
 	var confirmnewpassword = document.update.confirmnewpassword.value;
 
-	if (oldpassword=="")
-		{
-			alert("Please enter old password");
-			return false;
-			
-		}
-	else if (newpassword=="")
-		{
-			alert("Please enter new password");
-			return false;
-		}
-	else if (confirmnewpassword=="")
-		{
-			alert("Please confirm password");
-			return false;
-		}
-	else if (newpassword != confirmnewpassword){
-		alert("Password and confirm password do not match");
-		return false;
-	
 
+	if(oldpassword == ""){
+		alert("Enter current password");
+		return false;
+	}
+	else if(newpassword == ""){
+		alert("Enter new password");
+		return false;
+	}
+	else if(confirmnewpassword == ""){
+		alert("confirm new password");
+		return false;
+	}
+	else if(newpassword != confirmnewpassword){
+		alert("passwords do not match");
+	}
+	
 	}
 </script>
-
 </head>
 
 <body>
@@ -410,13 +406,13 @@ function validation()
 			
 		<form name="update" action="updatepassservlet" method="post" onsubmit="return validation()">
 					<div class="newsletter-form clearfix">
-						<input type="password" name="oldpassword" placeholder="Your old password" required> <br><br>
+						<input type="password" name="oldpassword" placeholder="Your old password"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="password" name="newpassword" placeholder="Your current password" required> <br><br>
+						<input type="password" name="newpassword" placeholder="Your current password"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="password" name="confirmnewpassword" placeholder="Confirm your current password" required> <br> <br>
+						<input type="password" name="confirmnewpassword" placeholder="Confirm your current password"> <br> <br>
 					</div>
 					<div class="newsletter-form clearfix">
 						<input type="submit" value="Update Password"><br> <br>

@@ -316,10 +316,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                      </div>
                      </div>
          <%} %>      
-                 <div class="col-md-9">
-         
-         </div>
-         
+                
          
          <div class="container">
 			<section class="section-editprofile">
@@ -340,6 +337,8 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			</div>
 			</section>
 			</div>		
+			
+			
 			
 		<footer id="colophon" class="site-footer">
 			<div class="top-footer">

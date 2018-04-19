@@ -7,22 +7,41 @@ import controller.updatepassbean;
 public class updatepassdao {
 	public String storevalues(updatepassbean s) {
 		String newpassword = s.getnewpassword();
+		String oldpassword = s.getoldpassword();
+
 		String email = s.getemail();
 		java.sql.Connection con = null;
-		java.sql.PreparedStatement statement = null;
+		java.sql.Statement statement = null;
 		java.sql.ResultSet resultSet = null;
+		java.sql.Statement statement1 = null;
+		java.sql.ResultSet resultSet1 = null;
+		String passworddb=null;
 					
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
-			statement = con.prepareStatement("UPDATE user_details SET pwd=? where email=?");
-			statement.setString(1, newpassword);
-			statement.setString(2, email);
-			statement.executeUpdate();
-			return "SUCCESS";
+			statement = con.createStatement();
+			resultSet = statement.executeQuery("select * from user_details where email ='"+email+"'");
+			if(resultSet.next())
+			{
+				passworddb = resultSet.getString("pwd");
+
+				if(oldpassword.equals(passworddb)) 
+					{
+						statement1 = con.createStatement();
+						int i = statement1.executeUpdate("update user_details set pwd='"+newpassword+"' where email='"+email+"'");
+						return "SUCCESS";
+					}
+					else {
+						return "FAIL";
+					}
+					
+				}
 			
 		}
+
+			
 		catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -3,6 +3,7 @@ package controller;
 public class updatepassbean {
 	private String email ;
 	private String newpassword ;
+	private String oldpassword ;
 
 	public String getemail() {
 		return email;
@@ -15,6 +16,12 @@ public class updatepassbean {
 	}
 	public void setnewpassword(String newpassword) {
 		this.newpassword = newpassword;
+	}
+	public String getoldpassword() {
+		return oldpassword;
+	}
+	public void setoldpassword(String oldpassword) {
+		this.oldpassword = oldpassword;
 	}
 
 

@@ -379,13 +379,13 @@
 			
 		<form action="editprofileservlet" method="post">
 					<div class="newsletter-form clearfix">
-						<input type="text" name="firstname" placeholder="Your First Name"> <br><br>
+						<input type="text" name="firstname" placeholder="Your First Name" required> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="text" name="lastname" placeholder="Your Last Name"> <br><br>
+						<input type="text" name="lastname" placeholder="Your Last Name" required> <br><br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="file" name="profilepic" placeholder="Your Profile Picture"> <br> <br>
+						<input type="file" name="profilepic" placeholder="Your Profile Picture" required> <br> <br>
 					</div>
 					<div class="newsletter-form clearfix">
 						<input type="submit" value="Edit Profile"><br> <br>

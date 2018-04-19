@@ -38,12 +38,15 @@ public class updatepassservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String oldpassword = request.getParameter("oldpassword");
+
 		String newpassword = request.getParameter("newpassword");
 		HttpSession session = request.getSession();
 
 		String email = session.getAttribute("email").toString();
 		
 		updatepassbean p = new updatepassbean();
+		p.setoldpassword(oldpassword);
 		p.setnewpassword(newpassword);
 		p.setemail(email);
 		System.out.println(email);
