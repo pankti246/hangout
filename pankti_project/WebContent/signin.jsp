@@ -113,6 +113,12 @@
 </style>
 </head>
 <body>
+
+
+<% if(session.getAttribute("email")!=null){
+ response.sendRedirect("Profile.jsp");
+}%>
+
 <header id="masthead" class="site-header fix-header header-1">
 
 <div class="main-header">
