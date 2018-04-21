@@ -69,6 +69,12 @@
 </style>
 </head>
 <body>
+<% if(session.getAttribute("email")==null){
+ response.sendRedirect("signin.jsp");
+}%>
+
+
+
 <% String id = request.getParameter("id"); 
    String email =(String) session.getAttribute("email");
 %>

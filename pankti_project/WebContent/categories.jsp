@@ -254,6 +254,9 @@
 </head>
 
 <body>
+<% if(session.getAttribute("email")==null){
+ response.sendRedirect("signin.jsp");
+}%>
 
 <sql:setDataSource
 	var="ds"

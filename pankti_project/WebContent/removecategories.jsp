@@ -68,6 +68,11 @@
 </style>
 </head>
 <body>
+
+<% if(session.getAttribute("email")==null){
+ response.sendRedirect("signin.jsp");
+}%>
+
 <% String sid=(String)session.getAttribute("email"); %>
 
 <sql:setDataSource
