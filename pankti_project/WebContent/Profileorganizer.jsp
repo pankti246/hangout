@@ -322,7 +322,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			<section class="section-editprofile">
 			
 			<div class="editprofile clearfix">
-			<a href=editprofile.jsp style="color:black;">Edit Profile</a><br><br>
+			<a href=editorgprofile.jsp style="color:black;">Edit Profile</a><br><br>
 			
 			</div>
 			</section>
@@ -332,7 +332,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			<section class="section-editprofile">
 			
 			<div class="editprofile clearfix">
-			<a href=updatepassword.jsp style="color:black;">Update Password</a><br><br>
+			<a href=updateorgpassword.jsp style="color:black;">Update Password</a><br><br>
 			
 			</div>
 			</section>

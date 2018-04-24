@@ -291,9 +291,41 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<script> 
+
+function validation()
+{
+	var oldpassword = document.update.oldpassword.value;
+	var newpassword = document.update.newpassword.value;
+	var confirmnewpassword = document.update.confirmnewpassword.value;
+
+
+	if(oldpassword == ""){
+		alert("Enter current password");
+		return false;
+	}
+	else if(newpassword == ""){
+		alert("Enter new password");
+		return false;
+	}
+	else if(confirmnewpassword == ""){
+		alert("confirm new password");
+		return false;
+	}
+	else if(newpassword != confirmnewpassword){
+		alert("passwords do not match");
+	}
+	
+	}
+</script>
 </head>
 
 <body>
+
+<% if(session.getAttribute("email")==null){
+ response.sendRedirect("signin.jsp");
+}%>
+
 <% String sid=(String)session.getAttribute("email"); %>
 
 <header id="masthead" class="site-header fix-header header-1">
@@ -374,20 +406,20 @@
 		<section class="section-newsletter">
 		<div class="container">
 				<div class="section-content">
-					<h2>Edit your profile!!!</h2>
+					<h2>Update Password!!</h2>
 			
-		<form action="editorgprofileservlet" method="post">
+		<form name="update" action="updateorgpassservlet" method="post" onsubmit="return validation()">
 					<div class="newsletter-form clearfix">
-						<input type="text" name="firstname" placeholder="Your First Name" required> <br><br>
+						<input type="password" name="oldpassword" placeholder="Your old password"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="text" name="lastname" placeholder="Your Last Name" required> <br><br>
-					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="file" name="profilepic" placeholder="Your Profile Picture" required> <br> <br>
+						<input type="password" name="newpassword" placeholder="Your current password"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="submit" value="Edit Profile"><br> <br>
+						<input type="password" name="confirmnewpassword" placeholder="Confirm your current password"> <br> <br>
+					</div>
+					<div class="newsletter-form clearfix">
+						<input type="submit" value="Update Password"><br> <br>
 					</div>
 					</form>
 					

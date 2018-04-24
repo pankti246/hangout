@@ -8,21 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.editprofilebean;
-import dao.editorgprofiledao;
-import dao.editprofiledao;
+import dao.updateorgpassdao;
 
 /**
- * Servlet implementation class editorgprofileservlet
+ * Servlet implementation class updateorgpassservlet
  */
-@WebServlet("/editorgprofileservlet")
-public class editorgprofileservlet extends HttpServlet {
+@WebServlet("/updateorgpassservlet")
+public class updateorgpassservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public editorgprofileservlet() {
+    public updateorgpassservlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,21 +37,20 @@ public class editorgprofileservlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
-		String profilepic = request.getParameter("profilepic");
+		String oldpassword = request.getParameter("oldpassword");
+
+		String newpassword = request.getParameter("newpassword");
 		HttpSession session = request.getSession();
 
 		String email = session.getAttribute("email").toString();
+		
+		updatepassbean p = new updatepassbean();
+		p.setoldpassword(oldpassword);
+		p.setnewpassword(newpassword);
+		p.setemail(email);
 		System.out.println(email);
-		editprofilebean s = new editprofilebean();
-		s.setfirstname(firstname);
-		s.setlastname(lastname);
-		s.setprofilepic(profilepic);
-		s.setemail(email);
-		System.out.println(profilepic);
-		editorgprofiledao d = new editorgprofiledao();
-		String values = d.storevalues(s);
+		updateorgpassdao d = new updateorgpassdao();
+		String values = d.storevalues(p);
 		if(values.equals("SUCCESS"))
 		{
 			response.sendRedirect("Profileorganizer.jsp?msg=editprofile sucessful");
@@ -61,12 +58,10 @@ public class editorgprofileservlet extends HttpServlet {
 		}
 		else {
 			request.setAttribute("errMessage", values);
-			request.getRequestDispatcher("/editorgprofile.jsp").forward(request,response);
+			request.getRequestDispatcher("/updateorgpassword.jsp").forward(request,response);
 			
 		}
 		
-
-
 
 
 

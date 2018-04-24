@@ -58,12 +58,12 @@ public class signupservlet extends HttpServlet {
 		
 		if(values.equals("SUCCESS"))
 		{
-			response.sendRedirect("index.jsp?msg=Registration sucessful");
+			response.sendRedirect("signin.jsp?msg=Registration sucessful");
 	
 		}
 		else {
 			request.setAttribute("errMessage", values);
-			request.getRequestDispatcher("/index.jsp").forward(request,response);
+			request.getRequestDispatcher("/signup.jsp").forward(request,response);
 			
 		}
 		

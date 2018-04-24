@@ -4,6 +4,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
+       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
    
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -50,12 +52,10 @@
 	background-size: cover;
 	height:110px;
 }
-
 .top-header .top-right ul li:first-child a{
 	color:#b3b3b3;
 	font-weight:500;
 }
-
 .section-editprofile{
 	background:#ff6600;
 	color:black;
@@ -73,7 +73,6 @@
 	width:250px;
 	margin:0 0 5px 0;
 }
-
 .section-editprofile:hover{
 	background:#ff6600;
 	color:#fff;
@@ -90,8 +89,6 @@
     color: black;
     vertical-align: middle;
 }
-
-
 .section-newsletter{
 	padding:90px 0;
 	-webkit-background-size: cover;
@@ -101,7 +98,6 @@
 	position:relative;
 	height:70%;
 }
-
 .section-newsletter:before{
 	content: "";
 	background:rgba(255, 102, 0, .9);
@@ -111,14 +107,12 @@
 	right:0;
 	left:0;
 }
-
 .section-newsletter .section-content{
 	text-align:center;
 	position:relative;
 	width:70%;
 	margin:0 auto;
 }
-
 .section-newsletter .section-content h2{
 	font-size:25px;
 	font-weight:700;
@@ -126,7 +120,6 @@
 	margin:0 0 20px;
 	font-family: 'Open Sans', sans-serif;
 }
-
 .section-newsletter .section-content p{
 	font-size:12px;
 	line-height:18px;
@@ -134,7 +127,6 @@
 	margin:0 0 30px;
 	font-family: 'Open Sans', sans-serif;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="email"]{
 	background:none;
 	color:#fff;
@@ -147,7 +139,6 @@
 	width:50%;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="text"]{
 	background:none;
 	color:#fff;
@@ -160,7 +151,6 @@
 	width:50%;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="password"]{
 	background:none;
 	color:#fff;
@@ -173,7 +163,6 @@
 	width:50%;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="file"]{
 	background:none;
 	color:#fff;
@@ -187,7 +176,6 @@
 	width:50%;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="radio"]{
 	background:none;
 	color:#fff;
@@ -200,7 +188,6 @@
 	width:50%;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="textbox"]{
 	background:none;
 	color:#fff;
@@ -213,8 +200,6 @@
 	width:50%;
 	height:53px;
 }
-
-
 .section-newsletter .section-content .newsletter-form input[type="submit"]{
 	background:#fff;
 	color:#ff6600;
@@ -230,53 +215,43 @@
 	text-transform:uppercase;
 	height:53px;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="submit"]:hover{
 	background:#ff6600;
 	color:#fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="email"]::-webkit-input-placeholder{
 	color: #fff;
 }
 .section-newsletter .section-content .newsletter-form input[type="email"]::-moz-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="email"]:-ms-input-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="email"]:-moz-placeholder{ 
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="password"]::-webkit-input-placeholder{
 	color: #fff;
 }
 .section-newsletter .section-content .newsletter-form input[type="password"]::-moz-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="password"]:-ms-input-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="password"]:-moz-placeholder{ 
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="text"]::-webkit-input-placeholder{
 	color: #fff;
 }
 .section-newsletter .section-content .newsletter-form input[type="text"]::-moz-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="text"]:-ms-input-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="text"]:-moz-placeholder{ 
 	color: #fff;
 }
@@ -286,11 +261,9 @@
 .section-newsletter .section-content .newsletter-form input[type="file"]::-moz-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="file"]:-ms-input-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="file"]:-moz-placeholder{ 
 	color: #fff;
 }
@@ -300,16 +273,15 @@
 .section-newsletter .section-content .newsletter-form input[type="textbox"]::-moz-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="textbox"]:-ms-input-placeholder{
 	color: #fff;
 }
-
 .section-newsletter .section-content .newsletter-form input[type="textbox"]:-moz-placeholder{ 
 	color: #fff;
 }
-
-
+.name{
+	color: #fff;
+}
 </style>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -321,6 +293,19 @@
 
 <body>
 <% String sid=(String)session.getAttribute("email"); %>
+
+<sql:setDataSource
+	var="ds"
+	driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/ualbanyhangouts"
+	user= "icsi518"
+	password= "secretICSI518"
+	/>
+	<sql:query var="categories" dataSource="${ds}">
+	SELECT * FROM `categories`;
+	
+	</sql:query>
+
 
 <header id="masthead" class="site-header fix-header header-1">
 			<div class="top-header top-header-bg">
@@ -401,39 +386,47 @@
 				<div class="section-content">
 					<h2>Create Hangout!!!</h2>
 			
-		<form action="editprofileservlet" method="post">
+		<form action="createeventservlet" method="post">
 					<div class="newsletter-form clearfix">
-						<input type="text" name="firstname" placeholder="Title of Hangout"> <br><br>
+						<input type="text" name="title" placeholder="Title of Hangout"> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="textbox" name="lastname" placeholder="Description of Hangout"> <br><br>
+						<input type="textbox" name="description" placeholder="Description of Hangout"> <br><br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="textbox" name="profilepic" placeholder="Speaker Info"> <br> <br>
+						<input type="text" name="day" placeholder="Enter Day"> <br> <br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Date"> <br> <br>
+						<input type="text" name="month" placeholder="Enter Month"> <br> <br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Time"> <br> <br>
-					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="profilepic" placeholder="Venue"> <br> <br>
+						<input type="text" name="year" placeholder="Enter Year"> <br> <br>
 					</div>
 					
+					<div align="center" class="newsletter-form clearfix">
+						<input type="text" name="time" placeholder="Enter Time"> <br> <br>
+					</div>
+					<div align="center" class="newsletter-form clearfix">
+						<input type="text" name="venue" placeholder="Enter Venue"> <br> <br>
+					</div>
+					
+					<div align="center" class="newsletter-form clearfix">
+					<input type="file" name="profilepic" placeholder="Choose event pic"> <br> <br>
+					</div>
+					<div align="center" class="newsletter-form clearfix">
+					<input type="file" name="coverpic" placeholder="Choose cover pic for event"> <br> <br>
+					</div>
+							          	<c:forEach var="listcategories" items="${categories.rows}">
+					
 					<div class="newsletter-form clearfix">
-					<div class="col-md-4"></div>
-					<div class="col-md-4">
-		            <h5><input type="radio" id="radio1" style="width:12px;" name="radio" value="user">Music &nbsp;&nbsp; 
-                       <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer"> Sports&nbsp;&nbsp; <br> <br></h5> 
-					                  <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Arts &nbsp;&nbsp; 
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Technology &nbsp;&nbsp; <br> <br>
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer">Management & Leadership&nbsp;&nbsp; <br> <br>  
-					                      <input type="radio" id="radio2" style="width:12px;" name="radio" value="organizer"> Language & Culture&nbsp;&nbsp; <br> <br></h5> 
-					
-					</div>
+		            <h5> 
+		            <div class="name">
+		            <c:out value="${listcategories.category_name}"></c:out>
+		            <input type="radio" id="radio1" style="width:12px;" name="radio" value="user">&nbsp;&nbsp; 
+                      </div>
 					</div>
 					
+					</c:forEach>
 					<div class="newsletter-form clearfix">
 						<input type="submit" value="Create"><br> <br>
 					</div>

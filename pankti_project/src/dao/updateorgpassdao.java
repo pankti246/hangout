@@ -1,10 +1,9 @@
-package controller;
-
+package dao;
 import java.sql.DriverManager;
 
 import controller.updatepassbean;
 
-public class updatepassdao {
+public class updateorgpassdao {
 	public String storevalues(updatepassbean s) {
 		String newpassword = s.getnewpassword();
 		String oldpassword = s.getoldpassword();
@@ -16,22 +15,20 @@ public class updatepassdao {
 		java.sql.Statement statement1 = null;
 		java.sql.ResultSet resultSet1 = null;
 		String passworddb=null;
-					
-		try {
+try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
 			statement = con.createStatement();
-			resultSet = statement.executeQuery("select * from user_details where email ='"+email+"'");
+			resultSet = statement.executeQuery("select * from organizer_details where email ='"+email+"'");
 			if(resultSet.next())
 			{
-				System.out.println("11");
 				passworddb = resultSet.getString("pwd");
 
 				if(oldpassword.equals(passworddb)) 
 					{
 						statement1 = con.createStatement();
-						int i = statement1.executeUpdate("update user_details set pwd='"+newpassword+"' where email='"+email+"'");
+						int i = statement1.executeUpdate("update organizer_details set pwd='"+newpassword+"' where email='"+email+"'");
 						return "SUCCESS";
 					}
 					else {

@@ -75,6 +75,8 @@
 
 <% String sid=(String)session.getAttribute("email"); %>
 
+
+
 <sql:setDataSource
 	var="ds"
 	driver="com.mysql.jdbc.Driver"
