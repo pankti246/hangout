@@ -292,7 +292,13 @@
 </head>
 
 <body>
+<% if(session.getAttribute("email")==null){
+ response.sendRedirect("signin.jsp");
+}%>
+
+
 <% String sid=(String)session.getAttribute("email"); %>
+
 
 <sql:setDataSource
 	var="ds"
@@ -385,36 +391,36 @@
 		<div class="container">
 				<div class="section-content">
 					<h2>Create Hangout!!!</h2>
-			
+			<%System.out.println(sid); %>
 		<form action="createeventservlet" method="post">
 					<div class="newsletter-form clearfix">
-						<input type="text" name="title" placeholder="Title of Hangout"> <br><br>
+						<input type="text" name="title" placeholder="Title of Hangout" required> <br><br>
 					</div>
 					<div class="newsletter-form clearfix">
-						<input type="textbox" name="description" placeholder="Description of Hangout"> <br><br>
+						<input type="textbox" name="description" placeholder="Description of Hangout" required> <br><br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="day" placeholder="Enter Day"> <br> <br>
+						<input type="text" name="day" placeholder="Enter Day" required> <br> <br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="month" placeholder="Enter Month"> <br> <br>
+						<input type="text" name="month" placeholder="Enter Month" required> <br> <br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="year" placeholder="Enter Year"> <br> <br>
-					</div>
-					
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="time" placeholder="Enter Time"> <br> <br>
-					</div>
-					<div align="center" class="newsletter-form clearfix">
-						<input type="text" name="venue" placeholder="Enter Venue"> <br> <br>
+						<input type="text" name="year" placeholder="Enter Year" required> <br> <br>
 					</div>
 					
 					<div align="center" class="newsletter-form clearfix">
-					<input type="file" name="profilepic" placeholder="Choose event pic"> <br> <br>
+						<input type="text" name="time" placeholder="Enter Time" required> <br> <br>
 					</div>
 					<div align="center" class="newsletter-form clearfix">
-					<input type="file" name="coverpic" placeholder="Choose cover pic for event"> <br> <br>
+						<input type="text" name="venue" placeholder="Enter Venue" required> <br> <br>
+					</div>
+					
+					<div align="center" class="newsletter-form clearfix">
+					<input type="file" name="profilepic" placeholder="Choose event pic" required> <br> <br>
+					</div>
+					<div align="center" class="newsletter-form clearfix">
+					<input type="file" name="coverpic" placeholder="Choose cover pic for event" required> <br> <br>
 					</div>
 							          	<c:forEach var="listcategories" items="${categories.rows}">
 					
@@ -422,7 +428,7 @@
 		            <h5> 
 		            <div class="name">
 		            <c:out value="${listcategories.category_name}"></c:out>
-		            <input type="radio" id="radio1" style="width:12px;" name="radio" value="user">&nbsp;&nbsp; 
+		            <input type="radio" id="radio1" style="width:12px;" name="radio" value="${listcategories.category_name}">&nbsp;&nbsp; 
                       </div>
 					</div>
 					
