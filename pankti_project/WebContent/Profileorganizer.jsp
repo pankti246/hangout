@@ -346,6 +346,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 				<div class="section-header">
 					<h2>Hangouts you organized!</h2>
 				</div>
+				
 				<div class="section-content">
 				<% ResultSet rs2=st.executeQuery("select * from event_details where organizer_email='"+sid+"'");
 				 while(rs2.next())
