@@ -4,7 +4,9 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%> 
-    
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -310,11 +312,9 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
                     </div>
                     <div class="desc"><%=email %>
                     </div>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
+                </div>
+            </div>
+                     
          <%} %>      
                 
          
@@ -326,20 +326,65 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			
 			</div>
 			</section>
-			</div>		
+		</div>		
 			  
-            <div class="container">
+        <div class="container">
 			<section class="section-editprofile">
 			
-			<div class="editprofile clearfix">
-			<a href=updateorgpassword.jsp style="color:black;">Update Password</a><br><br>
+				<div class="editprofile clearfix">
+					<a href=updateorgpassword.jsp style="color:black;">Update Password</a><br><br>
 			
-			</div>
+				</div>
 			</section>
-			</div>		
-			
-			
-			
+		</div>		
+</div>
+
+<div class="col-md-9">
+	<section class="section-upcoming-events">
+		<div class="container">
+			<div class="row">
+				<div class="section-header">
+					<h2>Hangouts you organized!</h2>
+				</div>
+				<div class="section-content">
+				<% ResultSet rs2=st.executeQuery("select * from event_details where organizer_email='"+sid+"'");
+				 while(rs2.next())
+                 {
+              	  String hangout_id = rs2.getString(1);
+              	  String day = rs2.getString(6);
+              	  String month = rs2.getString(7);
+              	  String year = rs2.getString(8);
+              	  String img = rs2.getString(5);
+              	  String name = rs2.getString(2);
+              	
+											%>
+					<ul class="clearfix">
+						<li>
+							<div class="date">
+								<span class="day"><%=day %></span>
+								<span class="month"><%=month %></span>
+								<span class="year"><%=year %></span>
+								
+							</div>
+							<img src="<%=img %>" alt="image">
+							<div class="info">
+								<p><%=name %> </p>
+									
+							</div>
+						</li>
+					</ul>	
+											
+				<% } %>
+								
+				</div>
+			</div>
+		</div>
+	</section>
+</div>		
+	</div>
+	</div>
+	
+	
 		<footer id="colophon" class="site-footer">
 			<div class="top-footer">
 				<div class="container">
