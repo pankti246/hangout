@@ -336,6 +336,15 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 			
 				</div>
 			</section>
+		</div>	
+		<div class="container">
+			<section class="section-editprofile">
+			
+				<div class="editprofile clearfix">
+					<a href=requestcat.jsp style="color:black;">Request for new category</a><br><br>
+			
+				</div>
+			</section>
 		</div>		
 </div>
 
@@ -367,7 +376,12 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 								<span class="year"><%=year %></span>
 								
 							</div>
-							<img src="<%=img %>" alt="image">
+							
+							<a href="viewevento.jsp?id=<%=hangout_id%>">
+								
+									<img src="<%=img %>" alt="image">
+									</a>
+								
 							<div class="info">
 								<p><%=name %> </p>
 									

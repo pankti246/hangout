@@ -57,6 +57,9 @@ public class loginservlet extends HttpServlet {
 			if(radio.equals("user")) {
 				HttpSession session =request.getSession();
 				session.setAttribute("email", email);
+				String firstname = l.getfirstname();
+				session.setAttribute("firstname", firstname);
+
 				response.sendRedirect("Profile.jsp?msg=login sucessful");
 			}
 			else {

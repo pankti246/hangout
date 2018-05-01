@@ -110,6 +110,7 @@
 }%>
 
 <%String sid=(String)session.getAttribute("email");
+String firstname1 = (String)session.getAttribute("firstname");
  %>
 
 
@@ -293,7 +294,11 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 										<span class="year"><%=year %></span>
 								
 								</div>
+								<a href="viewevent.jsp?id=<%=hangout_id%>">
+								
 									<img src="<%=img %>" alt="image">
+									</a>
+								
 								<div class="info">
 									<p><%=name %> </p>
 							<a href="delRSVPServlet?id=<%=hangout_id %>" class="get-ticket">Cancel RSVP</a>
@@ -319,15 +324,18 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 						<h2>Recommended Hangouts</h2>
 						</div>
 					<div class="section-content">
-					<% ResultSet rs1=st.executeQuery("select * from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"') and hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
+					<% ResultSet rs1=st.executeQuery("select hangout_id,day,month,year,img,name,CAST(time AS char) AS col_time,venue from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"') and hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
 					while(rs1.next())
 							                           {
 							                        	  String hangout_id = rs1.getString(1);
-							                        	  String day = rs1.getString(6);
-							                        	  String month = rs1.getString(7);
-							                        	  String year = rs1.getString(8);
+							                        	  String day = rs1.getString(2);
+							                        	  String month = rs1.getString(3);
+							                        	  String year = rs1.getString(4);
 							                        	  String img = rs1.getString(5);
-							                        	  String name = rs1.getString(2);
+							                        	  String name = rs1.getString(6);
+							                        	  String time = rs1.getString("col_time");
+							                        	  String venue = rs1.getString(8);
+							                        	 
 							                        	  %>
 						<ul class="clearfix">
 							
@@ -342,11 +350,14 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 										<span class="year"><%=year %></span>
 								
 								</div>
+									<a href="viewevent.jsp?id=<%=hangout_id%>">
+								
 									<img src="<%=img %>" alt="image">
+									</a>
 								<div class="info">
 									<p><%=name %> </p>
 									
-									<a href="RSVPServlet?id=<%=hangout_id %>" class="get-ticket">RSVP</a>
+									<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>" class="get-ticket">RSVP</a>
 								</div>
 							</li>
 							

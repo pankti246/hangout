@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.RSVPbean;
 import dao.RSVPdao;
+import controller.SendEmail;
 
 /**
  * Servlet implementation class RSVPServlet
@@ -34,8 +35,12 @@ public class RSVPServlet extends HttpServlet {
 		System.out.println("enter");
 
 		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String time = request.getParameter("time");
+		String venue = request.getParameter("venue");
 		HttpSession session = request.getSession();
 		String email = session.getAttribute("email").toString();
+		String firstname = session.getAttribute("firstname").toString();
 		System.out.println(email);
 		System.out.println(id);
 
@@ -52,6 +57,14 @@ public class RSVPServlet extends HttpServlet {
 		{
 		
 			System.out.println("servlet12");
+			System.out.println("In The Email POST " + email);
+			try {
+				System.out.println("in try block");
+				SendEmail.send(email,firstname+","+name+","+time+","+venue);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 
 			response.sendRedirect("Profile.jsp?msg=event added sucessfully");
 		}

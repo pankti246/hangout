@@ -23,7 +23,7 @@ public String authenticateUser(loginbean l)
 	
 	String emaildb = null;
 	String passworddb = null;
-
+	String firstname = null;
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,8 @@ public String authenticateUser(loginbean l)
 		{
 			emaildb = resultSet.getString("email");
 			passworddb = resultSet.getString("pwd");
-			
+			firstname = resultSet.getString("firstname");
+			l.setfirstname(firstname);
 			if(email.equals(emaildb) && pass.equals(passworddb)) {
 				return "SUCCESS";
 			}
