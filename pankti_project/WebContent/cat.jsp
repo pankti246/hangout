@@ -159,13 +159,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-header">
-						<h2>Hangouts you are going to!</h2>
-						</div>
-		
-					<div class="section-content">
-<%Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
+					
+					<%Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualbanyhangouts", "icsi518", "secretICSI518");
 Statement st=con.createStatement();
+ResultSet rs4 = st.executeQuery("select * from categories where category_id="+id);
+while(rs4.next())
+{
+	String category_name = rs4.getString(2);
 
+%>
+					
+						<h2>Hangouts under <%=category_name%>!</h2>
+						</div>
+		<%} %>
+					<div class="section-content">
+<%
    ResultSet rs=st.executeQuery("select * from event_details where cate_id="+id);
    System.out.println(id);
    %>
@@ -194,8 +202,10 @@ Statement st=con.createStatement();
 										<span class="year"><%=year %></span>
 								
 								</div>
+								<a href="viewevent.jsp?id=<%=hangout_id%>">
 								
 									<img src="<%=img %>" alt="image">
+									</a>
 								<div class="info">
 									<p><%=name %> </p>
 							
@@ -227,5 +237,62 @@ Statement st=con.createStatement();
 
 
 	  
-	 
+	 <footer id="colophon" class="site-footer">
+			<div class="top-footer">
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-md-8">
+							<a href="#"><img src="images/footerlogo.png" alt="logo"></a>
+						</div>
+						<div class="col-md-4">
+						
+						<p>&copy; UAlbany Hangouts. ALL RIGHTS RESEVED</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+						<div class="footer-1">
+							<div class="social clearfix">
+								<h3>Stay Connected</h3>
+								<ul>
+									<li class="facebook">
+										<a href="#">
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+											Facebook
+										</a>
+									</li>
+									<li class="twitter">
+										<a href="#">
+											<i class="fa fa-twitter" aria-hidden="true"></i>
+											Twitter
+										</a>
+									</li>
+									<li class="linkedin">
+										<a href="#">
+											<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+											LinkedIn
+										</a>
+									</li>
+									<li class="google">
+										<a href="#">
+											<i class="fa fa-google-plus-square" aria-hidden="true"></i>
+											Google+
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</footer>
 		
+</body>
+</html>
