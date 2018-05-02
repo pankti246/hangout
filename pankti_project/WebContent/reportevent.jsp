@@ -8,10 +8,10 @@
 <%
 String hangout_id = request.getParameter("hangout_id");
 String driverName = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:33060/";
+String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "ualbanyhangout";
-String userId = "root";
-String password = "root";
+String userId = "icsi518";
+String password = "secretICSI518";
 
 try {
 Class.forName(driverName);
