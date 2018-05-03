@@ -17,7 +17,6 @@ public class createventdao {
 		String radio = c.getcate_name();
 		String venue = c.getvenue();
 		String profilepic = c.getprofilepic();
-		String coverpic = c.getcoverpic();
 		java.sql.Connection con = null;
 		java.sql.PreparedStatement ps = null;
 		java.sql.Statement statement = null;
@@ -44,7 +43,7 @@ public class createventdao {
 			
 					System.out.println("q2");
 
-					String sql = "insert into event_details(name,description,organizer_email,cate_id,img,day,month,year,time,venue,cover_pic) values (?,?,?,?,?,?,?,?,?,?,?)";
+					String sql = "insert into event_details(name,description,organizer_email,cate_id,img,day,month,year,time,venue) values (?,?,?,?,?,?,?,?,?,?)";
 						ps = con.prepareStatement(sql);
 						ps.setString(1,title);
 							ps.setString(2,description);
@@ -56,7 +55,6 @@ public class createventdao {
 											ps.setString(8,year);
 											ps.setString(9,time);
 											ps.setString(10,venue);
-											ps.setString(11,coverpic);
 			
 				}
 

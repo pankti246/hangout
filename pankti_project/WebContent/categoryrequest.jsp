@@ -7,9 +7,10 @@
 
 <%
 String email = request.getParameter("organizer_email");
+
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "ualbanyhangout";
+String dbName = "ualbanyhangouts";
 String userId = "icsi518";
 String password = "secretICSI518";
 
@@ -30,9 +31,8 @@ ResultSet resultSet = null;
 </tr>
 <tr bgcolor="#A52A2A">
 <td><b>category_name</b></td>
-<td><b>organizer_email</b></td>
 <td><b>Description</b></td>
-
+<td><b>organizer_email</b></td>
 </tr>
 <%
 try{ 
@@ -45,7 +45,7 @@ while(resultSet.next()){
 %>
 <tr bgcolor="#DEB887">
 
-<td><%=resultSet.getInt("category_name") %></td>
+<td><%=resultSet.getString("category_name") %></td>
 <td><%=resultSet.getString("organizer_email") %></td>
 <td><a href="adminaddcategory.jsp?category_name=<%=resultSet.getString("category_name") %>"><button type="button">
 Accept</button></a></td>

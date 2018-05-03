@@ -87,6 +87,20 @@
             <h4><a href="organizer.jsp">Organizer Information</a></h4>
           </div>
         </div>
+        
+        <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a href="categoryrequest.jsp">Request Category</a></h4>
+          </div>
+        </div>
+       
+       <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><a href="reportevent.jsp">Reported Events</a></h4>
+          </div>
+        </div>
        
       </div>
      

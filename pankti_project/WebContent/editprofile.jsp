@@ -357,7 +357,6 @@
 									   <i class="fa fa-times fa-2x" aria-hidden="true"></i>
 									</button>
 									<ul class="nav navbar-nav navbar-right">
-										<li class="active"><a href="full-event-schedule.html">Schedule</a></li>
 										<li><a href="categories.jsp">Categories</a></li>
 										<li><a href="Profile.jsp">Profile</a></li>
 										</ul>
@@ -401,7 +400,9 @@
 			</div>
 			
 		</section>
-		
+		<h2 align="center" style="color:red"><%= (request.getAttribute("errMessage") == null) ? ""
+			 : request.getAttribute("errMessage")  %> </h2>
+	
 <footer id="colophon" class="site-footer">
 			<div class="top-footer">
 				<div class="container">

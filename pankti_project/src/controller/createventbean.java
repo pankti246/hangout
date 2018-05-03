@@ -13,6 +13,7 @@ public class createventbean {
 	private String cate_id;
 	private String email;
 	private String cate_name;
+	private String hangout_id;
 
 
 
@@ -114,6 +115,16 @@ public String getcate_name() {
 
 	public void setcate_name(String cate_name) {
 		this.cate_name = cate_name;
+	}
+
+
+public String gethangout_id() {
+		
+		return hangout_id;
+	}
+
+	public void sethangout_id(String hangout_id) {
+		this.hangout_id = hangout_id;
 	}
 
 

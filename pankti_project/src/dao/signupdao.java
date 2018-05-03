@@ -38,7 +38,7 @@ public class signupdao {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	return "Emailaddress already in use";
+	return "Email address already in use";
 	}
 	
 

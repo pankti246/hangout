@@ -427,7 +427,9 @@ function validation()
 			</div>
 			
 		</section>
-		
+		<h2 align="center" style="color:red"><%= (request.getAttribute("errMessage") == null) ? ""
+			 : request.getAttribute("errMessage")  %> </h2>
+	
 <footer id="colophon" class="site-footer">
 			<div class="top-footer">
 				<div class="container">

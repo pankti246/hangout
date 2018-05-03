@@ -35,7 +35,7 @@ public class updatepassdao {
 						return "SUCCESS";
 					}
 					else {
-						return "FAIL";
+						return "Old password is not correct";
 					}
 					
 				}
@@ -46,7 +46,7 @@ public class updatepassdao {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	return "Update password";
+	return "Update password unsuccesful";
 	}
 	
 

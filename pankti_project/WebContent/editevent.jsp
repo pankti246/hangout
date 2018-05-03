@@ -297,7 +297,10 @@
 }%>
 
 
-<% String sid=(String)session.getAttribute("email"); %>
+<% String sid=(String)session.getAttribute("email");
+String hangout_id = request.getParameter("id");
+
+%>
 
 
 <sql:setDataSource
@@ -390,9 +393,11 @@
 		<section class="section-newsletter">
 		<div class="container">
 				<div class="section-content">
-					<h2>Create Hangout!!!</h2>
+					<h2>Edit Hangout!!!</h2>
 			<%System.out.println(sid); %>
-		<form action="createeventservlet" method="post">
+		<form action="editeventservlet" method="post">
+			<input type="hidden" name="hangout_id" value="<%=hangout_id %>">
+		
 					<div class="newsletter-form clearfix">
 						<input type="text" name="title" placeholder="Title of Hangout" required> <br><br>
 					</div>
@@ -425,13 +430,13 @@
 		            <h5> 
 		            <div class="name">
 		            <c:out value="${listcategories.category_name}"></c:out>
-		            <input type="radio" id="radio1" style="width:12px;" name="radio" value="${listcategories.category_name}">&nbsp;&nbsp; 
+		            <input type="radio" id="radio1" style="width:12px;" name="radio" value="${listcategories.category_id}">&nbsp;&nbsp; 
                       </div>
 					</div>
 					
 					</c:forEach>
 					<div class="newsletter-form clearfix">
-						<input type="submit" value="Create"><br> <br>
+						<input type="submit" value="Edit"><br> <br>
 					</div>
 					</form>
 					

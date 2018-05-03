@@ -29,10 +29,11 @@ try {
 					{
 						statement1 = con.createStatement();
 						int i = statement1.executeUpdate("update organizer_details set pwd='"+newpassword+"' where email='"+email+"'");
+				
 						return "SUCCESS";
 					}
 					else {
-						return "FAIL";
+						return "Old password does not match";
 					}
 					
 				}

@@ -31,7 +31,7 @@ public class editprofiledao {
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-		return "Cannot edit profile";
+		return "Edit profile unsuccessful";
 		}
 		
 

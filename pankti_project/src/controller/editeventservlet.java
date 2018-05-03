@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class createeventservlet
+ * Servlet implementation class editeventservlet
  */
-@WebServlet("/createeventservlet")
-public class createeventservlet extends HttpServlet {
+@WebServlet("/editeventservlet")
+public class editeventservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createeventservlet() {
+    public editeventservlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,13 +36,21 @@ public class createeventservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		String email = session.getAttribute("email").toString();
+		String hangout_id = request.getParameter("hangout_id");
+
+		System.out.println("hangout_id");
+		System.out.println(hangout_id);
+		System.out.println(email);
 
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String cate_name = request.getParameter("radio");
+		System.out.println(cate_name);
 		
+		System.out.println(title);
 
 		String day = request.getParameter("day");
 		String month = request.getParameter("month");
@@ -60,29 +68,32 @@ public class createeventservlet extends HttpServlet {
 		c.setyear(year);
 		c.settime(time);
 		c.setcate_name(cate_name);
+		c.sethangout_id(hangout_id);
 		c.setvenue(venue);
 		c.setprofilepic(profilepic);
 		c.setemail(email);
 		System.out.println("set");
 
-		createventdao f = new createventdao();
-		String values = f.storevalues(c);
+			editeventdao f =new editeventdao();
+			String values = f.storevalues(c);
+			
+			if(values.equals("SUCCESS"))
+			{
+				System.out.println("daopass");
+
+				response.sendRedirect("Profileorganizer.jsp?msg=event sucessful");
 		
-		if(values.equals("SUCCESS"))
-		{
-			System.out.println("daopass");
+			}
+			else {
+				System.out.println("daofail");
 
-			response.sendRedirect("Profileorganizer.jsp?msg=event sucessful");
-	
-		}
-		else {
-			System.out.println("daofail");
-
-			request.setAttribute("errMessage", values);
-			request.getRequestDispatcher("/try.jsp").forward(request,response);
+				request.setAttribute("errMessage", values);
+				request.getRequestDispatcher("/editevent.jsp").forward(request,response);
+				
+			}
 			
 		}
-		
-	}
+
+	
 
 }

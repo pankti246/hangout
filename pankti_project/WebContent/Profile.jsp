@@ -6,7 +6,9 @@
 <%@page import="java.sql.DriverManager"%> 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-   
+   <%@page import="java.text.ParseException" %>
+<%@page import="java.text.SimpleDateFormat" %>
+<%@page import="java.util.Date" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -343,7 +345,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 							<li> 
 								<div class="date">
 									
-										
+									
 										
 										<span class="day"><%=day %></span>
 										<span class="month"><%=month %></span>
@@ -355,22 +357,33 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									<img src="<%=img %>" alt="image">
 									</a>
 								<div class="info">
-									<p><%=name %> </p>
+									<p><%=name %></p>
+							<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>" class="get-ticket">RSVP</a>
 									
-									<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>" class="get-ticket">RSVP</a>
 								</div>
 							</li>
 							
 							
 						</ul>
+						
 						<% } %>
 					</div>
+					
 				</div>
 			</div>
+			
 		</section>
 		
 </div>
+
+
+
+
+
 </div>
+
+
+
 	</div>
 </div>
 

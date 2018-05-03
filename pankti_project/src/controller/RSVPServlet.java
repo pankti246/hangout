@@ -38,6 +38,11 @@ public class RSVPServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String time = request.getParameter("time");
 		String venue = request.getParameter("venue");
+		String day = request.getParameter("day");
+		String month = request.getParameter("month");
+		String year = request.getParameter("year");
+
+		
 		HttpSession session = request.getSession();
 		String email = session.getAttribute("email").toString();
 		String firstname = session.getAttribute("firstname").toString();
@@ -60,7 +65,7 @@ public class RSVPServlet extends HttpServlet {
 			System.out.println("In The Email POST " + email);
 			try {
 				System.out.println("in try block");
-				SendEmail.send(email,firstname+","+name+","+time+","+venue);
+				SendEmail.send(email,firstname+","+name+","+time+","+venue+","+day+","+month+","+year);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();

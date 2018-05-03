@@ -77,6 +77,8 @@
 
 <% String id = request.getParameter("id"); 
    String email =(String) session.getAttribute("email");
+   String firstname1 = (String)session.getAttribute("firstname");
+
 %>
 <header id="masthead" class="site-header fix-header header-1">
 			<div class="top-header top-header-bg">
@@ -174,7 +176,7 @@ while(rs4.next())
 		<%} %>
 					<div class="section-content">
 <%
-   ResultSet rs=st.executeQuery("select * from event_details where cate_id="+id);
+   ResultSet rs=st.executeQuery("select hangout_id,name,organizer_email,cate_id,img,day,month,year,CAST(time AS char) AS col_time,venue from event_details where cate_id="+id);
    System.out.println(id);
    %>
 
@@ -190,6 +192,7 @@ while(rs4.next())
 								  String day = rs.getString(6);
 								  String month = rs.getString(7);
 								  String year = rs.getString(8);
+								  String time = rs.getString("col_time");
 								  String venue = rs.getString(10); %>
 							
 							<li> 
@@ -218,7 +221,10 @@ while(rs4.next())
 							<a href="delRSVPServlet?id=<%=hangout_id %>" class="get-ticket">Cancel RSVP</a>
 							<%}
 							else{ %>
-							<a href="RSVPServlet?id=<%=hangout_id %>" class="get-ticket">RSVP</a>
+							
+							
+							
+							<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>&day=<%=day %>&month=<%=month %>&year=<%=year %>" class="get-ticket">RSVP</a>
 							<%} %>		
 								</div>
 								

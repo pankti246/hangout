@@ -118,6 +118,7 @@
 
 <%
 String hangout_id = request.getParameter("id");
+
 String sid=(String)session.getAttribute("email");
  %>
 
@@ -183,8 +184,8 @@ String sid=(String)session.getAttribute("email");
 							          Statement st=con.createStatement();
 							         %>
 							         
-							         <li><a href="editevent.jsp">Edit Hangout</a>
-							         <li><a href="deletehangout.jsp">Delete Hangout</a>
+							         <li><a href="editevent.jsp?id=<%=hangout_id%>">Edit Hangout</a>
+							         <li><a href="deletehangoutservlet">Delete Hangout</a>
 										<li><a href="Profileorganizer.jsp">Profile</a></li>
 										</ul>
 								</div>
@@ -220,9 +221,25 @@ String sid=(String)session.getAttribute("email");
 	
 </div>
 <%} %>
-<div class="section-header">
-	<h4>&nbsp;&nbsp;&nbsp;Description</h4>
+<center>
+<div class="container">
+<div class="col-md-12">
+<%  ResultSet rs11=st.executeQuery("select count(user_email) from like_event where hangout_id='"+hangout_id+"' ");
+							                           while(rs11.next())
+							                           {
+							                        	  String number = rs11.getString(1);
+				%>
+
+
+			<i class="fas fa-thumbs-up fa-4x color:blue;"></i><%=number %>
+
+			<%} %>
+
 </div>
+</div>
+</center>
+<br/>
+<br/>
 <%  ResultSet rs01=st.executeQuery("select Description, day, month, year, CAST(time AS char) AS col_time, venue, organizer_email from  event_details where hangout_id='"+hangout_id+"' ");
 							                           while(rs01.next())
 							                           {
@@ -233,65 +250,41 @@ String sid=(String)session.getAttribute("email");
 							                        	  String time = rs01.getString("col_time");
 							                        	  String venue = rs01.getString(6);
 							                        	  String organizer_email = rs01.getString(7);
-
-
-
-
-
 	%>
 
 
 <div class="section-content">
-	<div class="col-md-2">
+	<div class="col-md-3">
+	<h3>Description</h3>
 	</div>
-	<div class="col-md-10">
+	<div class="col-md-9">
 		<%=description %>
 	</div>
 </div>
 
-<div class="section-header">
-	
-	<h4>&nbsp;&nbsp;&nbsp;Date</h4>
+<div class="section-content">
+	<div class="col-md-3">
+	<h3>Date</h3>
+	</div>
+	<div class="col-md-9">
+		<h3><%=date %>-<%=month %>-<%=year %></h3>
+	</div>
 </div>
 <div class="section-content">
-	<div class="col-md-2">
+	<div class="col-md-3">
+	<h3>Time</h3>
 	</div>
-	<div class="col-md-10">
-		<%=date %>-<%=month %>-<%=year %>
-	</div>
-</div>
-<div class="section-header">
-	
-	<h4>&nbsp;&nbsp;&nbsp;Time</h4>
-</div>
-<div class="section-content">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-10">
-	<%=time %>
+	<div class="col-md-9">
+	<h3><%=time %></h3>
 	</div>
 </div>
 
-<div class="section-header">
-	
-	<h4>&nbsp;&nbsp;&nbsp;Venue</h4>
-</div>
 <div class="section-content">
-	<div class="col-md-2">
+	<div class="col-md-3">
+	<h3>Venue</h3>
 	</div>
-	<div class="col-md-10">
-		<%=venue %>
-	</div>
-</div>
-<div class="section-header">
-	
-	<h4>&nbsp;&nbsp;&nbsp;Contact organizer</h4>
-</div>
-<div class="section-content">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-10">
-		<%=organizer_email %>
+	<div class="col-md-9">
+		<h3><%=venue %></h3>
 	</div>
 </div>
 
@@ -304,18 +297,15 @@ String sid=(String)session.getAttribute("email");
 while(rs2.next())
 {
 	  String count = rs2.getString(1);
-
 %>
 	
-	<div class="section-header">
 	
-	<h4>&nbsp;&nbsp;&nbsp;Number of RSVP's</h4>
-</div>
 <div class="section-content">
-	<div class="col-md-2">
+	<div class="col-md-3">
+	<h3>Number of RSVP's</h3>
 	</div>
-	<div class="col-md-10">
-		<%=count %>
+	<div class="col-md-9">
+		<h3><%=count %></h3>
 	</div>
 </div>
 	
@@ -323,43 +313,50 @@ while(rs2.next())
 		
 <%} %>
 
+<div class="section-content">
+	<div class="col-md-12">
+	<h3>User Details</h3>
+			</div>
 <%   ResultSet rs4=st.executeQuery("select user_email from rsvp_event where hangout_id='"+hangout_id+"'");
 while(rs4.next())
 {
 	  String email = rs4.getString(1);
-
 	  
 %>
-	
-	<div class="section-header">
-	
-	<h4>&nbsp;&nbsp;&nbsp;User details</h4>
-</div>
+
+	<div class="col-md-3"></div>
+	<div class="col-md-9">
+	<h3>	<%=email %><br/></h3>
+	</div>	
+			<%} %>
+			</div>
+		
+	<br/>
+	<br/>
+	<br/>
 <div class="section-content">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-3">
-		<%=email %>
-	</div>	
-	<%} %>
-		
-	<%   ResultSet rs6=st.executeQuery("select firstname, lastname from user_details where email=(select user_email from rsvp_event where hangout_id='"+hangout_id+"')");
-while(rs6.next())
-{
-	  String first = rs6.getString(1);
-		String last = rs6.getString(2);
-	  
-%>
-	<div class="col-md-4">
-		<%=first %>&nbsp;&nbsp;<%=last %>
-	</div>	
-		
+<div class="col-md-12"><h3>Reviews</h3></div>
 </div>
 	
+<%ResultSet rs87=st.executeQuery("select email,review from review where hangout_id='"+hangout_id+"'");
+while(rs87.next())
+{
+	  String useremail = rs87.getString(1);
+		String review = rs87.getString(2);
+	  
+%>
+<br/>
+<br/>
+	<div class="section-content">
+	<div class="col-md-3">
+	<h4><b><%=useremail %></b></h4>
 	
+	</div>
+	<div class="col-md-9">
+	<h4><%=review %></h4><br/>
+	</div>
+	<%} %>
+ 	</div>	
 		
-<%} %>
-
-	
-</body>
+	</body>
 </html>
