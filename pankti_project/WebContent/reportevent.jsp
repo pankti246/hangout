@@ -47,7 +47,7 @@ while(resultSet.next()){
 
 <td><%=resultSet.getInt("hangout_id") %></td>
 <td><%=resultSet.getString("user_email") %></td>
-<td><a href="deleteevent.jsp?hangout_id=<%=resultSet.getString("hangout_id") %>"><button type="button" class="delete">
+<td><a href="deletereportevent.jsp?hangout_id=<%=resultSet.getString("hangout_id") %>"><button type="button" class="delete">
 Delete</button></a></td>
 </tr>
 
