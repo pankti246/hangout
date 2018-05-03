@@ -45,6 +45,10 @@ while(resultSet.next()){
 %>
 <tr bgcolor="#DEB887">
 
+
+
+
+
 <td><%=resultSet.getString("category_name") %></td>
 <td><%=resultSet.getString("organizer_email") %></td>
 <td><a href="adminaddcategory.jsp?category_name=<%=resultSet.getString("category_name") %>"><button type="button">
