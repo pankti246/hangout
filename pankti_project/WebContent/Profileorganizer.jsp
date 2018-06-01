@@ -346,6 +346,35 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 				</div>
 			</section>
 		</div>		
+<div class="container">
+			<section class="section-editprofile">
+			
+				<div class="editprofile clearfix">
+					<a href=MessagePage.jsp style="color:black;">Message Admin</a><br><br>
+			
+				</div>
+			</section>
+		</div>	
+
+<div class="container">
+			<section class="section-editprofile">
+			
+				<div class="editprofile clearfix">
+					<a href="ViewAllEventReportServlet" style="color:black;">View all reports</a><br><br>
+			
+				</div>
+			</section>
+		</div>	
+<div class="container">
+			<section class="section-editprofile">
+			
+				<div class="editprofile clearfix">
+					<a href="ReportServlet" style="color:black;">Upload Event Report</a><br><br>
+			
+				</div>
+			</section>
+		</div>	
+
 </div>
 
 <div class="col-md-9">

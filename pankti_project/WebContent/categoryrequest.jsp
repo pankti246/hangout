@@ -52,6 +52,7 @@ while(resultSet.next()){
 
 
 <td><%=resultSet.getString("category_name") %></td>
+<td><%=resultSet.getString("description") %></td>
 <td><%=resultSet.getString("organizer_email") %></td>
 <td><a href="adminaddcategory.jsp?category_name=<%=resultSet.getString("category_name") %>"><button type="button">
 Accept</button></a></td>

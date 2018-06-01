@@ -8,7 +8,17 @@ private String speaker;
 private String speakerinfo;
 private String venue;
 private String email;
-
+private String time;
+private int eventid;
+public int getEventid() {
+	return eventid;
+}
+public String getTime() {
+	return time;
+}
+public void setTime(String tim) {
+	this.time = tim;
+}
 public String getTitle() {
 	return title;
 }
@@ -50,5 +60,9 @@ public String getEmail() {
 }
 public void setEmail(String email) {
 	this.email = email;
+}
+public void setEventid(int int1) {
+	// TODO Auto-generated method stub
+	
 }
 }

@@ -185,7 +185,6 @@ String sid=(String)session.getAttribute("email");
 							         %>
 							         
 							         <li><a href="editevent.jsp?id=<%=hangout_id%>">Edit Hangout</a>
-							         <li><a href="deletehangoutservlet">Delete Hangout</a>
 										<li><a href="Profileorganizer.jsp">Profile</a></li>
 										</ul>
 								</div>
@@ -258,7 +257,7 @@ String sid=(String)session.getAttribute("email");
 	<h3>Description</h3>
 	</div>
 	<div class="col-md-9">
-		<%=description %>
+		<h3><%=description %></h3>
 	</div>
 </div>
 

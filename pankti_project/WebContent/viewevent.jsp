@@ -291,30 +291,31 @@ String sid=(String)session.getAttribute("email");
 							%>
 							<a href="delRSVPServlet?id=<%=hangout_id %>" class="get-ticket">Cancel RSVP</a>
 							<%}
-							else{ %>
-							<%ResultSet rs1=st.executeQuery("select hangout_id,day,month,year,img,name,CAST(time AS char) AS col_time,venue from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"') and hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
-							while(rs1.next())
-	                           {
-	                        	  String day = rs1.getString(2);
-	                        	  String month = rs1.getString(3);
-	                        	  String year = rs1.getString(4);
-	                        	  String img = rs1.getString(5);
-	                        	  String name = rs1.getString(6);
-	                        	  String time = rs1.getString("col_time");
-	                        	  String venue = rs1.getString(8);
- %>
-							
-							
-							<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>" class="get-ticket">RSVP</a>
-							<%} %>
-							<%} %>		
-						</div>
-							
-	
+								else{ %>
+
+								<%ResultSet rs1=st.executeQuery("select hangout_id,day,month,year,img,name,CAST(time AS char) AS col_time,venue from event_details where cate_id in (Select category_id from interested_category where email='"+sid+"') and hangout_id not in (Select hangout_id from rsvp_event where user_email='"+sid+"')");						                           
+								if(rs1.next())
+		                           {
+		                        	  String day = rs1.getString(2);
+		                        	  String month = rs1.getString(3);
+		                        	  String year = rs1.getString(4);
+		                        	  String img = rs1.getString(5);
+		                        	  String name = rs1.getString(6);
+		                        	  String time = rs1.getString("col_time");
+		                        	  String venue = rs1.getString(8);
+	 %>
+								
+								
+								<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>&day=<%=day %>&month=<%=month %>&year=<%=year %>" class="get-ticket">RSVP</a>
+								<%} %>
+								<%} %>		
+							</div>
+								
+													
 
 					</li>
 					
-					
+	
 					<li>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<h3 align=center>
@@ -381,7 +382,7 @@ String sid=(String)session.getAttribute("email");
 	<h3>Description</h3>
 	</div>
 	<div class="col-md-9">
-		<%=description %>
+		<h3><%=description %></h3>
 	</div>
 </div>
 

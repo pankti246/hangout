@@ -39,8 +39,8 @@ public class SendEmail {
 			//message.setContent("<h1> Message: " + data + "</h1>", "text/html");
 
 			System.out.println(dataarray);
-			message.setContent("Dear " + dataarray[0] + "," + "<br/>Your registration for a seat in " + dataarray[1]
-					+ " has been recieved and confirmed by <b>UAlbany Hangouts <b> <br/><br/><b>Hangout name:</b> " + dataarray[1] +"<br/> Date:" + dataarray[4]+"-"+dataarray[5]+"-"+dataarray[6]+ "<br/> Time:" + dataarray[2]+ "<br/><b>Venue:</b>" + dataarray[3]
+			message.setContent("Dear " + dataarray[0] + "," + "<br/><br/>Your registration for a seat in " + dataarray[1]
+					+ " has been recieved and confirmed by <b>UAlbany Hangouts <b> <br/><br/><b>Hangout name:</b> " + dataarray[1] +"<br/> <b>Date:</b>" + dataarray[4]+"-"+dataarray[5]+"-2018"+ "<br/> Time:" + dataarray[2]+ "<br/><b>Venue:</b>" + dataarray[3]
 					+ " <br/><br/><br/><br/>Regards,<br/>Hangouts Team", "text/html");
 
 			Transport.send(message);

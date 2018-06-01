@@ -41,6 +41,9 @@ public class RSVPServlet extends HttpServlet {
 		String day = request.getParameter("day");
 		String month = request.getParameter("month");
 		String year = request.getParameter("year");
+		
+		System.out.println("sjabhxkus");
+		System.out.println(day+month+year);
 
 		
 		HttpSession session = request.getSession();

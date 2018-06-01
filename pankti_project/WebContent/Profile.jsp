@@ -333,6 +333,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 							                        	  String day = rs1.getString(2);
 							                        	  String month = rs1.getString(3);
 							                        	  String year = rs1.getString(4);
+							                        	  System.out.println("year"+year);
 							                        	  String img = rs1.getString(5);
 							                        	  String name = rs1.getString(6);
 							                        	  String time = rs1.getString("col_time");
@@ -358,7 +359,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ualban
 									</a>
 								<div class="info">
 									<p><%=name %></p>
-							<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>" class="get-ticket">RSVP</a>
+							<a href="RSVPServlet?id=<%=hangout_id %>&firstname=<%=firstname1 %>&time=<%=time %>&name=<%=name %>&venue=<%=venue %>&day=<%=day %>&month=<%=month %>&year<%=year %>" class="get-ticket">RSVP</a>
 									
 								</div>
 							</li>
